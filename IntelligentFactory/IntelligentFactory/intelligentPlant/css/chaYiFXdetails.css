@@ -1,0 +1,153 @@
+.cyd_outBox{
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.cydtopnav{
+	padding: 0 .2rem;
+	background: #f5f5f5;
+}
+.cyd_navBox{
+	overflow-y:hidden;
+	position: relative;
+	font-size: 0;/*去掉display: inline-block;之间的空隙*/
+	height: .88rem;
+
+	box-sizing: border-box;
+	white-space: nowrap;/*必须的*/
+}
+
+.cyd_navBox li{
+	position: relative;
+	display: inline-block;
+	width: 1.34rem;
+	height: .98rem;
+	font-size: .28rem;
+	text-align: center;
+	line-height: .88rem;
+	color: #333;
+}
+
+.cyd_navBox  .cyd_active{
+	font-size: .36rem;
+	color: #005bac;
+	line-height: .82rem;
+}
+
+.cyd_contentBox{
+	width: 100%;
+}
+.cyd_contentBox ul{
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+.cyd_contentBox h2{
+	width: 100%;
+	height: .88rem;
+	line-height: .88rem;
+	font-weight: normal;
+	font-size: .32rem;
+	box-sizing: border-box;
+	padding: 0 .2rem;
+}
+
+.cyd_innerNav{
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+	background: #f4f7fc;
+}
+
+.cyd_innerNav p{
+	height: .88rem;
+	font-size: .24rem;
+	color: #969696;
+	float: left;
+	line-height: .88rem;
+}
+
+.cyd_innerNav p:nth-of-type(1){
+	width: 22%;
+}
+
+.cyd_innerNav p:nth-of-type(2){
+	width: 28%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+.cyd_innerNav p:nth-of-type(3){
+	width: 36%;
+	box-sizing: border-box;
+	padding-left: .1rem;
+}
+
+.cyd_innerNav p:nth-of-type(4){
+	width: 14%;
+}
+.cyd_innerConent{
+	border-bottom: 1px solid #eaeaea;
+}
+.cyd_innerConent p{
+	height: .88rem;
+	font-size: .24rem;
+	color: #969696;
+	float: left;
+	line-height: .88rem;
+}
+
+.cyd_innerConent p:nth-of-type(1){
+	line-height: .44rem;
+	width: 22%;
+	box-sizing: border-box;
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cyd_innerConent p:nth-of-type(2){
+	width: 28%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+.cyd_innerConent p:nth-of-type(3){
+	box-sizing: border-box;
+	padding-left: .1rem;
+	width: 36%;
+}
+
+.cyd_innerConentp:nth-of-type(4){
+	width: 14%;
+}
+
+
+.threeb{
+	width: 100%;
+}
+
+.threeb p{
+	width: 33.333%;
+	height: .88rem;
+	float: left;
+	line-height: .88rem;
+	text-align: center;
+	font-size: .28rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

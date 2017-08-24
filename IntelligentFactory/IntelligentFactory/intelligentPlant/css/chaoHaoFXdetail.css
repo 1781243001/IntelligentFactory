@@ -1,0 +1,431 @@
+#mainCH_1{
+	width: 7.1rem;
+	height: 4rem;
+}
+
+.tabButton{
+	float: left;
+}
+
+.tabButton div{
+	float: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .32rem;
+	color: #333333;
+	box-sizing: border-box;
+}
+
+.tabButton div:nth-of-type(1){
+	color: #969696;
+	background: url(../img/sg.png) no-repeat right center;
+	background-size: 1px 60%;
+	padding-right: .2rem;
+}
+
+.tabButton div:nth-of-type(2){
+	background: url(../img/sg.png) no-repeat right center;
+	background-size: 1px 60%;
+	padding: 0 .2rem;
+}
+
+.tabButton div:nth-of-type(3){
+	padding-left: .2rem;
+}
+
+.legendCH{
+	width: 100%;
+}
+.legendCH>div{
+	float: left;
+	width: 50%;
+	height: .8rem;
+}
+.bako{
+	float: left;
+	width: 30%;
+	height: .8rem;
+	background: url(../img/chu.png) no-repeat left center;
+	background-size: contain;
+}
+
+.bak{
+	float: left;
+	width: 30%;
+	height: .8rem;
+	background: url(../img/jin.png) no-repeat left center;
+	background-size: contain;
+}
+.jx,.cx{
+	float: left;
+	width: 70%;
+	height: .8rem;
+}
+.jx p,.cx p{
+	height: .8rem;
+	line-height: .78rem;
+	float: left;
+	color: #969696;
+	font-size: .24rem;
+	width: 33%;
+	text-align: center;
+}
+.jx .active,.cx .active{
+	color: #333333;
+}
+
+
+.tbox{
+	width: 100%;
+	box-sizing: border-box;
+	padding: .4rem .2rem;
+	border-bottom: 1px solid #e0e4e6;
+}
+
+.tbox>div{
+	float: left;
+}
+
+.tbox_contentl{
+	width: 5.4rem;
+	height: 1.8rem;
+	box-sizing: border-box;
+	border-right: 1px solid #ececec;
+}
+
+.tbox_contentl>div{
+	
+}
+
+.tbox_top p{
+	float: left;
+	height: .56rem;
+	line-height: .56rem;
+}
+
+
+.tbox_top p:nth-of-type(1){
+	font-size: .28rem;
+	color: #333333;
+}
+
+.tbox_top p:nth-of-type(2){
+	font-size: .24rem;
+	color: #969696;
+	padding-left: .2rem;
+}
+
+.tbox_bottom{
+	width: 100%;
+	margin-top: .7rem;
+}
+
+.tbox_bottom div{
+	float: left;
+	width: 50%;
+}
+
+.tbox_bottom div p{
+	height: .56rem;
+	line-height: .56rem;
+	float: left;
+	font-size: .28rem;
+}
+
+.tbox_bottom div p:nth-of-type(1){
+	color: #333333;
+}
+
+.tbox_bottom div p:nth-of-type(2){
+	color: #969696;
+	padding-left: .2rem;
+}
+
+.tbox_contentrone,.tbox_contentrtwo,.tbox_contentrthree{
+	width: 1.64rem;
+	height: 1.8rem;
+}
+
+.tbox_contentrone div:nth-of-type(1),.tbox_contentrtwo  div:nth-of-type(1){
+	width: 1.7rem;
+	height: 1.4rem;
+	background: url(../img/blue.png) no-repeat center center;
+	background-size: contain;
+	line-height: 1.4rem;
+	font-size: .32rem;
+	text-align: center;
+	color: #333333;
+}
+
+.tbox_contentrone div:nth-of-type(2),.tbox_contentrtwo div:nth-of-type(2){
+	width: 1.64rem;
+	height: .4rem;
+	line-height: .4rem;
+	font-size: .24rem;
+	text-align: center;
+	color: #333333;
+}
+
+
+
+.tbox_contentrthree div:nth-of-type(1){
+	background: url(../img/red.png) no-repeat center center;
+	background-size: contain;
+	line-height: 1.4rem;
+	font-size: .32rem;
+	text-align: center;
+	color: #d0021b;
+}
+
+.tbox_contentrthree div:nth-of-type(2){
+	width: 1.64rem;
+	height: .4rem;
+	line-height: .4rem;
+	font-size: .24rem;
+	text-align: center;
+	color: #333333;
+}
+
+
+.xbox {
+    padding: .4rem 0;
+}
+
+.fx_titleBox {
+    width: 100%;
+}
+
+.fx_title {
+    background: #F4F7FC;
+}
+
+.fx_titleBox li {
+    width: 100%;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 0 .2rem;
+    display: flex;
+    line-height: .6rem;
+}
+
+.c {
+    padding: 0 .2rem;
+}
+
+.fx_titleBox li p {
+    box-sizing: border-box;
+    padding: .2rem 0;
+    float: left;
+    color: #969696;
+    font-size: .2rem;
+}
+
+.fx_titleBox li p:nth-of-type(1) {
+    width: 1.32rem;
+}
+
+.fx_titleBox li p:nth-of-type(2) {
+    width: 1.3rem;
+}
+
+.fx_titleBox li p:nth-of-type(3) {
+    width: 1.2rem;
+}
+
+.fx_titleBox li p:nth-of-type(4) {
+    width: 1.2rem;
+}
+
+.fx_titleBox li p:nth-of-type(5) {
+    width: 1.4rem;
+}
+
+.fx_titleBox li p:nth-of-type(6) {
+    width: 1.3rem;
+}
+
+.fx_title{
+	box-sizing: border-box;
+    padding: 0 .2rem;
+    display: flex;
+}
+.fx_title p{
+	float: left;
+	box-sizing: border-box;
+    padding: .2rem 0;
+    float: left;
+    color: #969696;
+    font-size: .2rem;
+    display: flex;
+    line-height: .6rem;
+}
+.fx_title p:nth-of-type(1) {
+    width: 1.32rem;
+}
+
+.fx_title p:nth-of-type(2) {
+    width: 1.3rem;
+}
+
+.fx_title p:nth-of-type(3) {
+    width: 1.2rem;
+}
+
+.fx_title p:nth-of-type(4) {
+    width: 1.2rem;
+}
+
+.fx_title p:nth-of-type(5) {
+    width: 1.4rem;
+}
+
+.fx_title p:nth-of-type(6) {
+    width: 1.3rem;
+}
+
+.jzC{
+	width: 100%;
+	padding-left: .2rem;
+	padding-bottom: .4rem;
+	box-sizing: border-box;
+}
+.jzC p{
+	float: left;
+	font-size: .28rem;
+}
+
+.jzC p:nth-of-type(2){
+	padding-left: .4rem;
+}
+
+.jzC p span:nth-of-type(1){
+	color: #969696;
+}
+
+.jzC p span:nth-of-type(2){
+	color: #333333;
+	padding-left: .2rem;
+}
+
+.wancl{
+	width: 100%;
+	height: 2.1rem;
+	padding: .4rem .2rem;
+	box-sizing: border-box;
+}
+
+.wancl div{
+	float: left;
+	width: 50%;
+}
+.wancl_tl dl{
+	margin-top: .2rem;
+}
+.wancl_tl dl dt{
+	font-size: .36rem;
+	text-align: center;
+	color: #005BAC;
+}
+
+.wancl_tl dl .big{
+	font-size: .5rem;
+}
+
+.wancl_tl dl dd{
+	font-size: .24rem;
+	text-align: center;
+	color: #969696;
+}
+
+.chLayer{
+	bottom: 0;
+	left: 0;
+	padding-top: .88rem;
+	box-sizing: border-box;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	display: none;
+}
+.jzchbox,.liangbox{
+	width: 100%;
+}
+.boxleft{
+	height: 5.28rem;
+	overflow: auto;
+	float: left;
+	width: 40%;
+	background: #FFFFFF;
+}
+
+.boxright{
+	height: 5.28rem;
+	overflow: auto;
+	float: left;
+	width: 60%;
+	background: #f5f5f5;
+}
+
+.alone,.myshowcontentL{
+	width: 100%;
+	padding-left: .2rem;
+	box-sizing: border-box;
+	border-bottom: 1px solid #dde0e5;
+}
+
+.myshowcontentR{
+	width: 100%;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	border-bottom: 1px solid #dde0e5;
+}
+
+.myshowcontentL p,.myshowcontentR p,.alone p{
+	height: .88rem;
+	line-height: .88rem;
+	width: 100%;
+	font-size: .28rem;
+}
+
+.bg{
+	background: #FFFFFF;
+}
+
+.bk {
+    background: url(../img/right.png) no-repeat right .1rem center;
+    background-size: 24px;
+}
+
+.myshowcontent {
+    width: 100%;
+    height: .88rem;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #969696;
+}
+
+.myshowcontent p {
+    width: 90%;
+    font-size: .28rem;
+    height: .88rem;
+    line-height: .88rem;
+    color: #333333;
+}
+
+.myshow{
+	height: 3.52rem;
+	background: #FFFFFF;
+}
+
+.text{
+	color: #005BAC;
+}
+
+
+
+
+
+
+
+

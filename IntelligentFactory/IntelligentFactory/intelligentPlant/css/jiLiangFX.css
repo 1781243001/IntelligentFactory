@@ -1,0 +1,137 @@
+.right_c{
+	float: right;
+	color: #005BAC;
+	font-size: .24rem;
+}
+.right_c span{
+	display: block;
+	height: .48rem;
+	box-sizing: border-box;
+}
+
+.jl_dbox{
+	float: left;
+	width: 100%;
+	display: flex;
+}
+
+.jl_box{
+	width: 100%;
+}
+
+.jl_box div{
+	float: left;
+	width: 100%;
+	height: .;
+}
+
+.jl_rightbox ul {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 8%;
+}
+
+.jl_yshow div {
+    background: #dde0e5;
+}
+
+.jl_dbox li {
+    width: 56%;
+    padding: .1rem .1rem .1rem 0;
+    padding-right: .1rem;
+    line-height: ;
+    box-sizing: border-box;
+    float: left;
+    font-size: .24rem;
+    position: relative;
+    color: #a1a1a1;
+}
+
+.jl_dbox .yhnumber{
+	padding-left: 0;
+}
+
+.bfb{
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	margin-top: -.16rem;
+	padding-left: .1rem;
+	box-sizing: border-box;
+}
+/*判断字符串长度小于3就加class little*/
+.jltitle .little{
+	height: .84rem;
+	line-height: .8rem;
+}
+.jltitle p{
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+ 
+.jl_dbox .jl_yshow{
+	width: 70%;
+}
+.company_name p{
+	height: .88rem;
+	line-height: .88rem;
+	float: left;
+}
+
+.company_name div{
+	height: .88rem;
+	line-height: .88rem;
+	float: left;
+	height: .88rem;
+	width: .6rem;
+	background: url(../img/tab.png) no-repeat left center;
+	background-size: 70%;
+}
+
+.jl_leftbox .jl_dbox .yhnumber {
+    text-align: right;
+    color: #333333;
+    width: 40%;
+    position: relative;
+    padding-right: 0;
+}
+
+.jl_dshow div, .jl_yshow div {
+    height: .2rem;
+    width: 100%;
+    border-radius: .2rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -.1rem;
+}
+
+.jl_yshow div .jl_yshowinner {
+    width: 60%;
+    height: .2rem;
+    float: left;
+    border-radius: .2rem;
+    background: #00baef;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/common/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/chaoHaoFXdetail.css"/>
+		<title>产耗分析</title>
+	</head>
+	<body>
+		<div class="header bg clear">
+			<div class="tabButton clear">
+				<div class="zhiHui">1#装置</div>
+				<div class="liang">平衡量</div>
+				<div class="jzch">水</div>
+			</div>
+			<div class="sel_wrap clear">
+				<label>2017/07/12</label>       
+				<input type="date" name="" class="select" id="" value="">
+			</div>
+		</div>
+		<section class="bodyall">
+			<section class="outBox">
+				<div class="title clear">
+					<div class="left-c">产耗分析趋势图</div>
+				</div>
+				<div id="mainCH_1"></div>
+				<div class="legendCH clear">
+					<div>
+						<div class="bak"></div>
+						<div class="jx clear">
+							<p class="active">自产</p>
+							<p>外购</p>
+							<p>供入</p>
+						</div>
+					</div>
+					<div>
+						<div class="bako"></div>
+						<div class="cx clear">
+							<p class="active">消耗</p>
+							<p>外供</p>
+							<p>外售</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="outBox" style="padding: 0;">
+				<div class="tbox clear"> 
+					<div class="tbox_contentl clear">
+						<div class="tbox_top clear">
+							<p>购入总量:</p><p>(万千瓦时/万吨)</p>
+						</div>
+						<div class="tbox_bottom clear">
+							<div class="clear">
+								<p>昨日总量:</p><p>343</p>
+							</div>
+							<div class="clear">
+								<p>本月累计:</p><p>234234</p>
+							</div>
+						</div>
+					</div>
+					<div class="tbox_contentrone">
+						<div>5000</div>
+						<div>
+							<span>环比:</span>
+							<span>-12</span>
+						</div>
+					</div>
+				</div>
+				<div class="tbox clear"> 
+					<div class="tbox_contentl clear">
+						<div class="tbox_top clear">
+							<p>自产总量:</p><p>(万千瓦时/万吨)</p>
+						</div>
+						<div class="tbox_bottom clear">
+							<div class="clear">
+								<p>昨日总量:</p><p>343</p>
+							</div>
+							<div class="clear">
+								<p>本月累计:</p><p>234234</p>
+							</div>
+						</div>
+					</div>
+					<div class="tbox_contentrtwo">
+						<div>5000</div>
+						<div>
+							<span>环比:</span>
+							<span>-12</span>
+						</div>
+					</div>
+				</div>
+				<div class="tbox clear"> 
+					<div class="tbox_contentl clear">
+						<div class="tbox_top clear">
+							<p>消耗总量:</p><p>(万千瓦时/万吨)</p>
+						</div>
+						<div class="tbox_bottom clear">
+							<div class="clear">
+								<p>昨日总量:</p><p>343</p>
+							</div>
+							<div class="clear">
+								<p>本月累计:</p><p>234234</p>
+							</div>
+						</div>
+					</div>
+					<div class="tbox_contentrthree">
+						<div>5000</div>
+						<div>
+							<span>环比:</span>
+							<span>-12</span>
+						</div>
+					</div>
+				</div>
+				<div class="wancl">
+					<div class="wancl_tl">
+						<dl>
+							<dt><span class="big">76</span><span>%</span></dt>
+							<dd>月生产完成率</dd>
+						</dl>
+					</div>
+					<div class="wancl_tl">
+						<dl>
+							<dt><span class="big">80</span><span>%</span></dt>
+							<dd>月消耗完成率</dd>
+						</dl>
+					</div>
+				</div>
+			</section>
+			<section class="xbox">
+				<div class="title clear">
+					<div class="left-c c">计量分析堆积图</div>
+				</div>
+				<div class="jzC clear">
+					<p>
+						<span>区域:</span>
+						<span>青岛炼化</span>
+					</p>
+					<p>
+						<span>介质:</span>
+						<span>电</span>
+					</p>
+						
+				</div>
+				<nav class="fx_title clear">
+					<p>能耗类型</p>
+					<p>描述</p>
+					<p>月计划</p>
+					<p>日完成</p>
+					<p>月完成率</p>
+					<p>计划累计</p>
+				</nav>
+				<ul class="fx_titleBox">
+					<!--<li class="fx_title">
+						<p>能耗类型</p>
+						<p>描述</p>
+						<p>月计划</p>
+						<p>日完成</p>
+						<p>月完成率</p>
+						<p>计划累计</p>
+					</li>-->
+					<li>
+						<p>消耗</p>
+						<p>消耗水</p>
+						<p>l66026</p>
+						<p>l66026</p>
+						<p>100%</p>
+						<p>888888</p>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<div class="chLayer">
+			<div class="jzchbox">
+				<div class="boxleft">
+					<!--<div class="myshowcontentL bko">
+						<p>的发个梵蒂冈地方个</p>
+					</div>
+					<div class="myshowcontentL">
+						<p>的发个梵蒂冈地方个</p>
+					</div>
+					<div class="myshowcontentL">
+						<p>的发个梵蒂冈地方个</p>
+					</div>-->
+				</div>
+				<div class="boxright">
+					<!--<div class="myshowcontentR bk">
+						<p>的发个梵蒂冈地方个</p>
+					</div>
+					<div class="myshowcontentR">
+						<p>的发个梵蒂冈地方个</p>
+					</div>
+					<div class="myshowcontentR">
+						<p>的发个梵蒂冈地方个</p>
+					</div>-->
+				</div>
+			</div>
+			<div class="liangbox">
+				<div class="myshow">
+					<div data-type="0" class="myshowcontent bk">
+						<p>平衡量</p>
+					</div>
+					<div data-type="1" class="myshowcontent">
+						<p>原始量</p>
+					</div>
+					<div data-type="2" class="myshowcontent">
+						<p>确认量</p>
+					</div>
+					<div data-type="3" class="myshowcontent">
+						<p>平衡确认量</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script src="js/common/jquery-3.2.1.js"></script>
+	<script src="js/common/echarts.js"></script>
+	<script src="js/common/base.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script src="js/chanHaoFXdetail.js"></script>
+</html>
+

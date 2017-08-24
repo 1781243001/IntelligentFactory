@@ -1,0 +1,278 @@
+/*容器*/
+#main {
+	width: 7.1rem;
+	height: 6rem;
+}
+#mainZ {
+	width: 7.1rem;
+	height: 5.3rem;
+	/*height: 250px;*/
+}
+
+#main_zznh {
+	width: 7.1rem;
+	height: 5.4rem;
+}
+#main_ny{
+	width: 7.1rem;
+	height: 4.8rem;
+}
+#main_mg{
+	width: 7.1rem;
+	height: 4.8rem;
+}
+#main_jl{
+	width: 7.1rem;
+	height: 5.5rem;
+}
+
+/*页面*/
+.bz{
+	font-size: .24rem;
+	color: #999;
+	padding-top: .2rem;
+}
+
+.right-c,.right_jg {
+	float: right;
+	border: 1px solid #005bac;
+	border-radius: 2px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.right-c p,.right_jg p {
+	width: 1.12rem;
+	height: .48rem;
+	line-height: .48rem;
+	text-align: center;
+	float: left;
+	box-sizing: border-box;
+	color: #333333;
+	font-size: .28rem;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);/*去掉移动端点击后又阴影问题*/
+}
+
+.right_tab .nh_active{
+	background: #005bac;
+	color: #fff;
+}
+
+.right_jg .jg_active{
+	background: #005bac;
+	color: #fff;
+}
+
+.seeCH_Detail,.seeCB_Detail,.seeZB_Detail,.seeJL_Detail{
+	float: right;
+	font-size: .28rem;
+	color: #005BAC;
+}
+
+.right_tab {
+	float: right;
+	border: 1px solid #005bac;
+	border-radius: 2px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.right_tab p{
+	width: 1.12rem;
+	height: .48rem;
+	line-height: .48rem;
+	text-align: center;
+	float: left;
+	box-sizing: border-box;
+	color: #333333;
+	font-size: .28rem;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);/*去掉移动端点击后又阴影问题*/
+}
+
+
+
+
+
+
+.line-nav{
+	width: 100%;
+}
+
+.line-nav div{
+	width: 33.3333%;
+	float: left;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.navclick{
+	border-radius: 8px;
+	box-shadow: 3px 3px 3px 3px #f2f4f6;
+}
+.navclick p{
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	
+}
+
+
+.yh_outBox{
+	width: 100%;
+	height: 1.7rem;
+	overflow: hidden;
+}
+
+.leftBox{
+	float: left;
+	width: 5rem;
+	height: 1.36rem;
+	margin-top: .18rem;
+	box-sizing: border-box;
+	border-right: 1px solid #d7d7d8;
+	box-sizing: border-box;
+	padding-right: 2%;
+}
+
+.leftBox ul{
+	width: 100%;
+}
+
+.leftBox ul li{
+	width: 26%;
+	height: .67rem;
+	float: left;
+	font-size: .24rem;
+	position: relative;
+	color: #a1a1a1;
+}
+.leftBox ul .yhnumber{
+	text-align: right;
+	color: #333333;
+	width: 30%;
+}
+
+.ny_dbox li,.ny_ybox li{
+	line-height: .67rem;
+}
+.ny_dbox .ny_dshow,.ny_ybox .ny_yshow{
+	width: 44%;
+}
+
+
+.ny_dshow div, .ny_yshow div{
+	height: .2rem;
+	width: 94%;
+	border-radius: .2rem;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -.1rem;
+}
+
+.ny_dshow div{
+	background: #a781f3;
+}
+
+.ny_yshow div{
+	background: #dde0e5;
+}
+
+.ny_yshow div .ny_yshowinner{
+	width: 60%;
+	height: .2rem;
+	float: left;
+	border-radius: .2rem;
+	background: #00baef;
+}
+
+
+.rightBox{
+	width: 2rem;
+	float: right;
+	height: 1.7rem;
+	padding-top: .56rem;
+	box-sizing: border-box;
+	background: url(../img/Oval.png) no-repeat center center;
+	background-size: contain;
+}
+
+.rightBox p{
+ 	width: 100%;
+ 	font-size: .24rem;
+ 	text-align: center;
+ 	color: #9b9b9b;
+}
+
+.rightBox .shownumber{
+	font-size: .28rem;
+	color: #333333;
+}
+.nyBox {
+	padding-bottom: .4rem;
+	overflow: auto;
+	font-size: 0;
+	/*width: 100%;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    white-space: nowrap;
+    font-size: 0;*/
+}
+.nyBox li{
+	float: left;
+	/*display: inline-block;*/
+	width: 25%;
+	background: url(../img/sg.png) no-repeat right 0 top 0;
+	background-size: 1px 96%;
+	color: #939393;
+	height: 1.06rem;
+}
+
+.nyBox li:last-child{
+	background: none;
+}
+
+.nyBox .nyactiv {
+	color: #005bac;
+}
+
+/*.nyBox .nyactive p:nth-of-type(2){
+	color: #2674b9;
+}*/
+
+
+/*.nyBox li:nth-of-type(2){
+	float: left;
+	width: 26%;
+}
+.nyBox li:nth-of-type(3){
+	float: left;
+	width: 22%;
+}
+.nyBox li:nth-of-type(4){
+	float: left;
+	width: 22%;
+	background:none;
+}*/
+
+.nyBox li p{
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	/*height: .52rem;*/
+	line-height: .32rem;
+	padding: 0 .1rem;
+	font-size: .2rem;
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.nyBox li p:nth-of-type(1){
+	box-sizing: border-box;
+	padding-top: .1rem;
+	font-size: .28rem;
+	font-family: helvetica; 
+}

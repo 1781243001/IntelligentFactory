@@ -1,0 +1,580 @@
+#main_s {
+    width: 7.1rem;
+    height: 5.5rem;
+}
+
+.tabjl{
+	width: ;
+}
+.tabjl p:nth-of-type(1){
+	padding-right: .2rem;
+	text-align: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .28rem;
+	color: #333333;
+	float: left;
+	background: url(../img/title_gang.png) no-repeat right center;
+	background-size: 1px .38rem;
+}
+
+.tabjl p:nth-of-type(2){
+	padding-left: .2rem;
+	text-align: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .28rem;
+	color: #333333;
+	float: left;
+}
+
+.right_c {
+    float: right;
+    color: #969696;
+    font-size: .24rem;
+}
+
+.right_c span {
+    display: block;
+    height: .24rem;
+    box-sizing: border-box;
+}
+
+.outBoxTS .cBox{
+	float: left;
+	background: url(../img/cy_gang1.png) no-repeat right center;
+	background-size: 1px 96%;
+	padding-left: .3rem;
+	box-sizing: border-box;
+}
+.cBox dt{
+	font-size: .28rem;
+	color: #3333333;
+}
+
+.cBox dd{
+	font-size: .2rem;
+	color: #969696;
+	margin-top: .06rem;
+}
+
+.cBox:nth-of-type(1){
+	width: 1.18rem;
+	padding: 0 ;
+}
+
+.cBox:nth-of-type(2){
+	width: 1.76rem;
+}
+
+.cBox:nth-of-type(3){
+	width: 1.5rem;
+}
+
+.cBox:nth-of-type(4){
+	width: 1.38rem;
+}
+
+.cBox:nth-of-type(5){
+	width: 1.28rem;
+	background: none;
+}
+
+.xbox{
+	padding: .4rem 0;
+}
+
+.c{
+	padding: 0 .2rem;
+}
+
+.jz{
+	height: .48rem;
+	float: right;
+	font-size: 0;
+	box-sizing: border-box;
+	padding-right: .2rem;
+}
+
+.jz span{
+	font-size: .28rem;
+	color: #969696;
+}
+
+.jz span:nth-of-type(2){
+	padding-left: .2rem;
+	color: #3333333;
+}
+
+.fx_titleBox{
+	width: 100%;
+}
+
+.fx_titleBox li{
+	width: 100%;
+	font-size: 0;
+	box-sizing: border-box;
+	padding: 0 .2rem;
+	display: flex;
+	line-height: .6rem;
+}
+
+.fx_titleBox .fx_title{
+	background: #F4F7FC;
+}
+
+.fx_titleBox li p{
+	box-sizing: border-box;
+	padding: .2rem 0;
+	float: left;
+	color: #969696;
+	font-size: .2rem;
+	
+}
+
+.fx_titleBox li p:nth-of-type(1){
+	width: 1.14rem;
+}
+
+.fx_titleBox li p:nth-of-type(2){
+	width: 1.46rem;
+	padding-right: .3rem;
+	box-sizing: border-box;
+}
+
+.fx_titleBox li p:nth-of-type(3){
+	width: .8rem;
+}
+
+.fx_titleBox li p:nth-of-type(4){
+	width: .8rem;
+}
+
+.fx_titleBox li p:nth-of-type(5){
+	width: 1.6rem;
+}
+
+.fx_titleBox li p:nth-of-type(6){
+	width: 1.3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*另一个页面*/
+.outBoxTS{
+	box-sizing: border-box;
+	width: 100%;
+	padding: .2rem 0;
+	margin-top: .2rem;
+	box-shadow: 0 0 0.6rem #e1e5e8;
+}
+
+.outBoxTS>div{
+	box-sizing: border-box;
+	padding: 0 .2rem;
+}
+
+.zb{
+	width: 100%;
+	font-size: 0;
+	box-sizing: border-box;
+	padding: .4rem .2rem .1rem .2rem;
+}
+
+.zb p{
+	height: .44rem;
+	display: inline-block;
+	font-size: .28rem;
+	color: #969696;
+}
+
+.zb p:nth-of-type(2){
+	padding-left: .2rem;
+	color: #3333333;
+}
+
+.zbc{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 .2rem .3rem .2rem;
+}
+
+.zbc li{
+	float: left;
+	width: 20%;
+}
+
+.zbc li p:nth-of-type(1){
+	float: left;
+	width: 58%;
+	height: .48rem;
+	line-height: .48rem;
+	font-size: .24rem;
+}
+
+.zbc li p:nth-of-type(2){
+	float: left;
+	width: 42%;
+	height: .48rem;
+	line-height: .48rem;
+	font-size: .24rem;
+	text-align: left;
+}
+
+.FX_Onecntent,.FX_Twocntent,.FX_Threecntent,.FX_Fourcntent,.FX_Fivecntent{
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+.FX_nav{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 .2rem;
+	background: #F4F7FC;
+}
+
+.FX_Onenav,.FX_Threenav,.FX_Fournav,.FX_Fivenav{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 .2rem;
+	background: #F4F7FC;
+}
+
+.FX_nav p{
+	float: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Onenav p{
+	float: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Onenav p:nth-of-type(1){
+	width: 1.64rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+.FX_Onenav p:nth-of-type(2){
+	width: 3.4rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+.FX_Onenav p:nth-of-type(3){
+	width: 1.68;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Threenav p,.FX_Fournav p,.FX_Fivenav p{
+	width: 22%;
+	float: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Threenav p:nth-of-type(1),.FX_Fournav p:nth-of-type(1),.FX_Fivenav p:nth-of-type(1){
+	width: 36%;
+	float: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Threenav p:last-child,.FX_Fournav p:last-child,.FX_Fivenav p:last-child{
+	width: 20%;
+	float: left;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+
+.FX_cntent li{
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	padding-right: .2rem;
+	display: flex;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.FX_Onecntent li,.FX_Twocntent li,.FX_Threecntent li,.FX_Fourcntent li,.FX_Fivecntent li{
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	padding-right: .2rem;
+	display: flex;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.FX_cntent li p{
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+.FX_Onecntent li p:nth-of-type(1),.FX_Twocntent li p:nth-of-type(1){
+	width: 1.64rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.FX_Onecntent li p:nth-of-type(2){
+	width: 3.38rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Twocntent li p:nth-of-type(2),.FX_Twocntent li p:nth-of-type(3){
+	width: 1.18rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Twocntent li p:nth-of-type(4){
+	width: 3.1rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Onecntent li p:nth-of-type(3){
+	width: 1.96rem;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Threecntent li p,.FX_Fourcntent li p,.FX_Fivecntent li p{
+	width: 25%;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Threecntent li p:nth-of-type(1),.FX_Fourcntent li p:nth-of-type(1),.FX_Fivecntent li p:nth-of-type(1){
+	width: 36%;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+	box-sizing: border-box;
+	padding-left: .1rem;
+}
+
+.FX_Threecntent li p:last-child,.FX_Fourcntent li p:last-child,.FX_Fivecntent li p:last-child{
+	width: 14%;
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .24rem;
+}
+
+.FX_Threecntent li p:first-child,.FX_Fourcntent li p:first-child,.FX_Fivecntent li p:first-child{
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.FX_cntent li p:nth-of-type(1){
+	width: 1.64rem;
+}
+.FX_nav p:nth-of-type(1){
+	width: 1.64rem;
+}
+.FX_cntent li p:nth-of-type(2){
+	width: 3.38rem;
+}
+
+.FX_nav p:nth-of-type(2){
+	width: 1.18rem;
+}
+
+.FX_nav p:nth-of-type(3){
+	width: 1.18rem;
+}
+
+.FX_nav p:nth-of-type(4){
+	width: 3.1rem;
+}
+
+
+
+.FX_cntent li p:nth-of-type(3){
+	width: 2.1rem;
+}
+
+.FX_nav p::nth-of-type(3){
+	width: 2.1rem;
+}
+
+.ls{
+	padding-left: .2rem;
+}
+
+.FX_hide{
+	width: 100%;
+	height: .6rem;
+	background: url(../img/sq.png) no-repeat center center;
+	background-size: 20px;
+}
+
+.FX_sh>li{
+	display: none;
+}
+
+.FX_sh .FX_show{
+	display: block;
+}
+
+.FX_tabColor dt,.FX_tabColor dd{
+	color: #005bac;
+}
+.FX_twotop p{
+	height: .48rem;
+	line-height: .48rem;
+	float: left;
+	font-size: .28rem;
+}
+
+.FX_twobottom{
+	width: 100%;
+}
+
+.FX_twobottom li{
+	width: 33.33333%;
+	float: left;
+}
+
+.FX_twobottom li p{
+	height: .48rem;
+	line-height: .48rem;
+	float: left;
+	font-size: .28rem;
+}
+
+.FX_twobottom li p:nth-of-type(1){
+	color: #969696;
+}
+
+.FX_twobottom li p:nth-of-type(2){
+	padding-left: .2rem;
+	color: #333333;	
+	font-size: .26rem;
+}
+
+.FX_twotop p:nth-of-type(1){
+	font-size: .26rem;
+	color: #969696;
+}
+
+.FX_twotop p:nth-of-type(2){
+	padding-left: .2rem;
+	font-size: .26rem;
+	color: #3333333;
+}
+
+.FX_two,.FX_three{
+	width: 100%;
+	box-sizing: border-box;
+	padding: .4rem .2rem;
+}
+
+.FX_three div{
+	width: 30%;
+	float: left;
+}
+
+.FX_threec p{
+	height: .4rem;
+	line-height: .4rem;
+	float: left;
+	font-size: .28rem;
+}
+
+.FX_threec p:nth-of-type(1){
+	color: #969696;
+}
+
+.FX_threec p:nth-of-type(2){
+	padding-left: .2rem;
+	font-size: .24rem;
+	color: #333333;
+}
+
+.FX_four,.FX_five{
+	box-sizing: border-box;
+	padding: .36rem .2rem;
+}
+
+.FX_top,.FX_bottom,.FX_four,.FX_five{
+	width: 100%;
+}
+
+.FX_top li,.FX_bottom li{
+	float: left;
+	width: 50%;
+}
+
+
+.FX_top li p,.FX_bottom li p{
+	float: left;
+	font-size: .28rem;
+	height: .48rem;
+	line-height: .48rem;
+}
+
+.FX_top li p:nth-of-type(1),.FX_bottom li p:nth-of-type(1){
+	color: #969696;
+}
+
+.FX_top li p:nth-of-type(2),.FX_bottom li p:nth-of-type(2){
+	padding-left: .2rem;
+	font-size: .26rem;
+	color: #333333;
+}
+
+table{
+	
+}
+
+table tr{
+	height: .88rem;
+	font-size: .2rem;
+}
+
+.firstTr{
+	padding: 0 .2rem;
+	background: #F4F7FC;
+}

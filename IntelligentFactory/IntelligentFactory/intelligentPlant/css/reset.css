@@ -1,0 +1,175 @@
+body,div,span,h1,h2,h3,h4,h5,h6,p,a,em,img,q,strong,dd,dl,dt,li,ol,ul,label,table,tbody,tr,th,td,input{margin:0;padding:0;-webkit-tap-highlight-color:rgba(255,255,255,0);}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none}
+ol,ul,li{list-style:none}
+textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;}
+.clear:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+/*body{
+	display: none;
+}*/
+.bodyall{
+	/*width: 7.5rem;*/
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: .88rem 0 .88rem 0;
+	overflow: auto;
+}
+.sel_wrap {
+	width: 2.24rem;
+	height: .88rem;
+	float: right;
+    position: relative;
+}
+.sel_wrap label {
+    font-size: .28rem;
+    z-index: 2;
+    line-height: .88rem;
+    height: .88rem;
+    display: block;
+    text-align: right;
+    color: #333333;
+    box-sizing: border-box;
+    padding-right: .58rem;
+    background: url(../img/icon_date.png) no-repeat right 0 center;
+    background-size: .52rem;
+}
+.sel_wrap .select {
+    height: .88rem;
+    width: 2rem;
+    line-height: .88rem;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    font-size: .32rem;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+.sel_wrap:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: .88rem;
+    height: .88rem;
+}
+input{
+	border: 0;
+}
+.company_name{
+	height: .88rem;
+	line-height: .88rem;
+	font-size: .3rem;
+	float: left;
+	color: #333333;
+	box-sizing: border-box;
+}
+.header{
+	width: 100%;
+	background: #f5f5f5;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+.outBox {
+	margin-bottom: .2rem;
+	background: #fff;
+	box-sizing: border-box;
+	padding: .4rem .2rem;
+	box-shadow:0 0 .6rem #e1e5e8;  
+}
+
+.title {
+	width: 100%;
+	font-size: 16px;
+	line-height: 28px;
+	box-sizing: border-box;
+	padding-bottom: .4rem;
+}
+
+.left-c {
+	float: left;
+	line-height: .48rem;
+}
+
+
+.right-c,.right_jg {
+	float: right;
+	border: 1px solid #005bac;
+	border-radius: 2px;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.right-c p,.right_jg p {
+	width: 1.12rem;
+	height: .48rem;
+	line-height: .48rem;
+	text-align: center;
+	float: left;
+	box-sizing: border-box;
+	color: #333333;
+	font-size: .28rem;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);/*去掉移动端点击后又阴影问题*/
+}
+
+.footer {
+    width: 100%;
+    height: .88rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    font-size: .32rem;
+    line-height: .88rem;
+    text-align: center;
+    color: #fff;
+    display: none;
+}
+
+.company_name div {
+    height: .88rem;
+    line-height: .88rem;
+    float: left;
+    height: .88rem;
+    width: .6rem;
+    background: url(../img/tab.png) no-repeat left center;
+    background-size: 70%;
+}
+
+.company_name p {
+    height: .88rem;
+    line-height: .88rem;
+    float: left;
+    display: none;
+}
+
+.company_name .dz{
+	display: block;
+}
+
+.chfx_box{
+	width: 100%;
+}
+
+.chdzListBody {
+    display: none;
+}

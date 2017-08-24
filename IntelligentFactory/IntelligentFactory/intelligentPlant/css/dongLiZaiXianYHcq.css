@@ -1,0 +1,301 @@
+#jyDate{
+	width: 7.1rem;
+	height: 4.3rem;
+}
+#yhDate{
+	width: 7.1rem;
+	height: 4.3rem;
+}
+
+.dl_name{
+	width: 100%;
+	height: .88rem;
+	box-sizing: border-box;
+	padding-left: .2rem;
+	line-height: .88rem;
+	color: #333;
+	font-size: .32rem;
+	background: #f5f5f5;
+}
+.dl_outBox{
+	width: 100%;
+	box-sizing: border-box;
+	padding: .4rem .2rem;
+	margin-bottom: .2rem;
+	box-shadow:0 0 .6rem #e1e5e8;
+}
+
+.dl_outBox_name{
+	width: 100%;
+	box-sizing: border-box;
+	padding-bottom: .4rem;
+}
+.dl_outBox_name h3{
+	float: left;
+	font-weight: normal;
+	color: #333;
+	font-size: .32rem;
+	padding-right: .1rem;
+}
+
+.dl_outBox_name p{
+	float: left;
+	font-weight: normal;
+	color: #969696;
+	font-size: .28rem;
+	padding-top: .02rem;
+}
+
+.dl_outBox_content{
+	padding: 0 .48rem;
+}
+
+.dl_outBox_content div{
+	float: left;
+}
+
+.dl_outBox_content div:nth-of-type(1){
+	width: 1.86rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	padding-right: .68rem;
+}
+
+.dl_outBox_content div:nth-of-type(2){
+	width: 2.42rem;
+	height: 2.44rem;
+	background: url(../img/Group.png) no-repeat center center;
+	background-size: contain;
+}
+
+.dl_outBox_content div:nth-of-type(3){
+	width: 1.86rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	padding-left: .68rem;
+}
+
+
+.dloc_left p:nth-of-type(1){
+	width: 100%;
+	font-size: .44rem;
+	color: #333;
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: .94rem;
+}
+
+.dloc_left p:nth-of-type(2){
+	width: 100%;
+	font-size: .24rem;
+	color: #969696;
+	text-align: center;
+}
+
+
+.dloc_right p:nth-of-type(1){
+	box-sizing: border-box;
+	padding-top: .94rem;
+	width: 100%;
+	font-size: .44rem;
+	color: #333;
+	text-align: center;
+}
+
+.dloc_right p:nth-of-type(2){
+	width: 100%;
+	font-size: .24rem;
+	color: #969696;
+	text-align: center;
+}
+
+.dloc_center{
+	font-size: .64rem;
+	color: #333;
+	line-height: 2.44rem;
+	text-align: center;
+}
+/*table{
+	font-size: .24rem;
+}
+table tr td{
+	height: 44px;
+	
+}*/
+.dl_tablebox{
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+/*.dl_tableboxt{
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: .2rem;
+	background: #f4f7fc;
+}
+
+.dl_tableboxt p{
+	height: .88rem;
+	line-height: .88rem;
+	float: left;
+	font-size: .2rem;
+	color: #969696;
+}
+.dl_tableboxt p:nth-of-type(1){
+	width: 1.48rem;
+}
+.dl_tableboxt p:nth-of-type(2){
+	width: 1.08rem;
+}
+.dl_tableboxt p:nth-of-type(3){
+	width: 1.1rem;
+}
+.dl_tableboxt p:nth-of-type(4){
+	width: 1.24rem;
+}
+.dl_tableboxt p:nth-of-type(5){
+	width: 1.24rem;
+}
+.dl_tableboxt p:nth-of-type(6){
+	width: 1.16rem;
+}
+
+.dl_tablebox_l{
+	width: 100%;
+	border-bottom: 1px solid #f1f1f1;
+	box-sizing: border-box;
+}
+.dl_tablebox_l p{
+	height: .88rem;
+	line-height: .88rem;
+	float: left;
+	font-size: .22rem;
+}
+
+.dl_tablebox_l p:nth-of-type(1){
+	width: 1.48rem;
+}
+.dl_tablebox_l p:nth-of-type(2){
+	width: 1.08rem;
+}
+.dl_tablebox_l p:nth-of-type(3){
+	width: 1.1rem;
+}
+.dl_tablebox_l p:nth-of-type(4){
+	width: 1.24rem;
+}
+.dl_tablebox_l p:nth-of-type(5){
+	width: 1.24rem;
+}
+.dl_tablebox_l p:nth-of-type(6){
+	width: 1.16rem;
+}*/
+
+.dl_mx_conetnt {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 .4rem .4rem .4rem;
+	border-bottom: 1px solid #dfdfe0;
+}
+
+.dl_mxleft{
+	float: left;
+	width: 50%;
+}
+
+.dl_mxleft li{
+	width: 100%;
+	margin-top: .3rem;
+}
+
+.dl_mxleft li:nth-of-type(2){
+	width: 100%;
+	margin-top: .4rem;
+}
+
+.dl_mxleft li p:nth-of-type(1){
+	float: left;
+	font-size: .28rem;
+	color: #969696;
+	text-align: right;
+}
+
+.dl_mxleft li p:nth-of-type(2){
+	width: 56%;
+	font-size: .28rem;
+	float: right;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+.dl_mxright{
+	float: right;
+	width: 50%;
+}
+
+.dl_mxright li{
+	width: 100%;
+	margin-top: .2rem;
+}
+
+.dl_mxright li:nth-of-type(2){
+	width: 100%;
+	margin-top: .4rem;
+}
+
+.dl_mxright li p:nth-of-type(1){
+	width: 44%;
+	float: left;
+	font-size: .28rem;
+	color: #969696;
+	text-align: right;
+}
+
+.dl_mxright li p:nth-of-type(2){
+	width: 56%;
+	font-size: .28rem;
+	float: right;
+	box-sizing: border-box;
+	padding-left: .2rem;
+}
+
+
+/*总成本页面*/
+.dl_nav{
+	margin: 0 auto;
+	width: 4.08rem;
+	height: .48rem;
+	border: 1px solid #005BAC;
+	border-radius: 2px;
+}
+.dl_nav p{
+	width: 1.36rem;
+	height: .48rem;
+	float: left;
+	font-size: .24rem;
+	line-height: .52rem;
+	text-align: center;
+	color: #333;
+	box-sizing: border-box;
+	border-right: 1px solid #005BAC;
+}
+.dl_nav p:last-child{
+	border-right: 0;
+}
+.dl_nav .dl_active{
+	background: #005bac;
+	color: #fff;
+}
+
+.listContent{
+	width: 100%;
+}
+
+#dot{
+	width: 100%;
+	padding-top: .4rem;
+	height: 4.6rem;
+}
+
+
