@@ -208,7 +208,9 @@
         _webView.delegate = self;
         _webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
         [self.view addSubview:_webView];
-//        _webView.scrollView.delegate = self;
+//        _webView.scrollView.scrollEnabled = NO;
+        _webView.scrollView.bounces = NO;
+        
     }
     return _webView;
 }
