@@ -1,21 +1,21 @@
 $(function(){
 	/*setTimeout(function(){
 		$("body").css({"display":"block"})
-	},1600)*/
+	},200)*/
 	var baseObj = new Base();
 	var domainStr = baseObj.mainDomain;
 	var loading = new Loading()
-	var zhzDataAll = baseObj.getQuery(window.location.search, 'sjson');
-	//var zhzDataAll = '[{"id":"5461006","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
-	/*var P = '<p>'+zhzDataAll+'</p><p>第三方斯蒂芬</p>'
+	var chanHaoDZAll = baseObj.getQuery(window.location.search, 'sjson');
+	//var chanHaoDZAll = '[{"id":"5461006","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
+	/*var P = '<p>'+chanHaoDZAll+'</p><p>第三方斯蒂芬</p>'
 	$("body").append(P)*/
 	
-	if(zhzDataAll == ""){
+	if(chanHaoDZAll == ""){
 		bm_mrAreaListData()
 	} else {
-		localStorage.setItem("zhzData",zhzDataAll);
-		var zhzData = JSON.parse(localStorage.getItem("zhzData"));
-		bm_dzAreaListData(zhzData)
+		localStorage.setItem("chanHaoData",chanHaoDZAll);
+		var chanHaoData = JSON.parse(localStorage.getItem("chanHaoData"));
+		bm_dzAreaListData(chanHaoData)
 	}
 	
 	$(".company_name p").on("click",function(){
@@ -29,9 +29,9 @@ $(function(){
 			$(".chbodyall").css({"padding-bottom":".88rem"})
 			console.log("这是定制页面")
 			$(".footer").css({"display":'block'})
-			var Department = JSON.parse(localStorage.getItem("Department")) || [];
-			console.log(Department)
-			bm_dzAreaListData(Department)
+			var chanHaoData = JSON.parse(localStorage.getItem("chanHaoData")) || [];
+			console.log(chanHaoData)
+			bm_dzAreaListData(chanHaoData)
 		} else if($(this).text() == "切换到默认"){
 			bm_mrAreaListData()
 			$(".chbodyall").css({"padding-bottom":"0"})
@@ -49,7 +49,7 @@ $(function(){
 	
 	
 	
-	//jzData()
+	jzData()
 	function jzData(){
 		loading.show();
   		var jzJson = {
@@ -98,7 +98,7 @@ $(function(){
 		})
   	}
 	
-	function bm_dzAreaListData(zhzData){
+	function bm_dzAreaListData(chanHaoData){
 		loading.show()
 		$(".chdzListBody").empty();
 		$(".chdzListBody").css({"display":"block"}).siblings().css({"display":"none"});
@@ -110,18 +110,19 @@ $(function(){
 			}
 		});
     	var listDome = "";
-    	$.each(zhzData, function(i) {
+    	$.each(chanHaoData, function(i) {
     		listDome += '<section class="outBox" style="margin-top: 0px;">'+
 							'<div class="title clear">'+
-								'<div data-areaId='+zhzData[i].id+' class="left-c areaId">'+decodeURIComponent(decodeURIComponent(zhzData[i].text))+'</div>'+
+								'<div data-areaId='+chanHaoData[i].id+' class="left-c areaId">'+decodeURIComponent(decodeURIComponent(chanHaoData[i].text))+'</div>'+
 							'</div>'+
-							'<div id="ch_index_'+zhzData[i].id+'" class="chfx_cbox_dz"></div>'+
+							'<div id="ch_index_'+chanHaoData[i].id+'" class="chfx_cbox_dz"></div>'+
 						'</section>';
     	});
     	$(".chdzListBody").append(listDome);
     	loading.hide();
     	
     	$.each($(".chfx_cbox_dz"), function() {
+    		echarts.dispose(document.getElementById($(this).attr("ID")));
 			var myChart = echarts.init(document.getElementById($(this).attr("ID")));
 			var optionBar = $(this).attr("ID");
 			optionBar = {

@@ -6,18 +6,18 @@ $(function(){
 	var baseObj = new Base();
 	var domainStr = baseObj.mainDomain;
 	var loading = new Loading()
-	var DepartmentAll = baseObj.getQuery(window.location.search, 'sjson');
-	//var DepartmentAll = '[{"id":"5466","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
-	/*var P = '<p>'+DepartmentAll+'</p><p>第三方斯蒂芬</p>';
+	var chanHaoDZAll = baseObj.getQuery(window.location.search, 'sjson');
+	//var chanHaoDZAll = '[{"id":"5466","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
+	/*var P = '<p>'+chanHaoDZAll+'</p><p>第三方斯蒂芬</p>';
 	$("body").append(P)*/
 	
-	if(DepartmentAll == ""){
+	if(chanHaoDZAll == ""){
 		bm_mrAreaListData()
 	} else {
-		localStorage.setItem("Department",DepartmentAll);
-		var Department = JSON.parse(localStorage.getItem("Department"));
-		console.log(Department)
-		bm_dzAreaListData(Department)
+		localStorage.setItem("chanHaoData",chanHaoDZAll);
+		var chanHaoData = JSON.parse(localStorage.getItem("chanHaoData"));
+		console.log(chanHaoData)
+		bm_dzAreaListData(chanHaoData)
 	}
 	$(".company_name p").on("click",function(){
 		console.log($(this).text())
@@ -30,9 +30,9 @@ $(function(){
 			$(".chbodyall").css({"padding-bottom":".88rem"})
 			console.log("这是定制页面")
 			$(".footer").css({"display":'block'})
-			var Department = JSON.parse(localStorage.getItem("Department")) || [];
-			console.log(Department)
-			bm_dzAreaListData(Department)
+			var chanHaoData = JSON.parse(localStorage.getItem("chanHaoData")) || [];
+			console.log(chanHaoData)
+			bm_dzAreaListData(chanHaoData)
 		} else if($(this).text() == "切换到默认"){
 			bm_mrAreaListData()
 			$(".chbodyall").css({"padding-bottom":"0"})
@@ -99,7 +99,7 @@ $(function(){
 		})
   	}
 	
-	function bm_dzAreaListData(Department){
+	function bm_dzAreaListData(chanHaoData){
 		$(".chdzListBody").empty();
 		$(".chdzListBody").css({"display":"block"}).siblings().css({"display":"none"});
 		$(".footer").css({"display":"block"})
@@ -110,12 +110,12 @@ $(function(){
 			}
 		});
     	var listDome = "";
-    	$.each(Department, function(i) {
+    	$.each(chanHaoData, function(i) {
     		listDome += '<section class="outBox" style="margin-top: 0px;">'+
 							'<div class="title clear">'+
-								'<div data-areaId='+Department[i].id+' class="left-c areaId">'+decodeURIComponent(decodeURIComponent(Department[i].text))+'</div>'+
+								'<div data-areaId='+chanHaoData[i].id+' class="left-c areaId">'+decodeURIComponent(decodeURIComponent(chanHaoData[i].text))+'</div>'+
 							'</div>'+
-							'<div id="ch_index_'+Department[i].id+'" class="chfx_cbox_dz"></div>'+
+							'<div id="ch_index_'+chanHaoData[i].id+'" class="chfx_cbox_dz"></div>'+
 						'</section>';
     	});
     	$(".chdzListBody").append(listDome);
@@ -411,10 +411,10 @@ $(function(){
 	        	var listName = ""
 	        	$.each(listData, function(i) {
 	        		if(listData[i].id == 2901){
-						listName = '<div data-areaId='+listData[i].id+' class="seeCh_Detail">厂区列表</div>';
+						listName = '<div data-areaId='+listData[i].id+' class="seeCh_Detail">下级列表</div>';
 					}
 	        		if(listData[i].id != 2901){
-						listName = '<div data-areaId='+listData[i].id+' class="seeCh_Detail">车间列表</div>';
+						listName = '<div data-areaId='+listData[i].id+' class="seeCh_Detail">下级列表</div>';
 					}
 	        		listDome += '<section class="outBox" style="margin-top: 0px;">'+
 									'<div class="title clear">'+
@@ -647,7 +647,7 @@ $(function(){
 					                    position: 'insideLeft',
 					                    //formatter:'{c}',
 					                    textStyle:{
-					                        color:'#000'
+					                        color:'#333333'
 					                    }
 					                }
 					            },

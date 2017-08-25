@@ -187,6 +187,16 @@
 	background: #00baef;
 }
 
+.sel_wrap .noshow {
+    font-size: .28rem;
+    z-index: 2;
+    line-height: .88rem;
+    height: .88rem;
+    display: block;
+    text-align: right;
+    color: #333333;
+    box-sizing: border-box;
+}
 
 .rightBox{
 	width: 2rem;

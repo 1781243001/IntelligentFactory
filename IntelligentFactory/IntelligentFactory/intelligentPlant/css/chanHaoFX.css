@@ -4,7 +4,9 @@
     padding: 0 .2rem;
     box-sizing: border-box;
 }
-
+/*body{
+	display: none;
+}*/
 .chheader{
 	width: 100%;
 	position: fixed;
@@ -134,6 +136,7 @@
 .legend_chindex li span{
 	float: left;
 	font-size: .28rem;
+	color: #333333;
 }
 
 

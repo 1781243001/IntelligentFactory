@@ -8,6 +8,9 @@ $(function(){
 	var baseObj = new Base();
 	var domainStr = baseObj.mainDomain;
 	
+	var newDate = new Date()
+	$(".noshow").text(baseObj.formatNDate(newDate))
+	
 	
 	console.log(baseObj.formatTime("2017/7/24 17:00:09"))
 	//表格数据

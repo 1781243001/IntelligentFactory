@@ -4,8 +4,22 @@ $(function(){
 	},1600)*/
 	var baseObj = new Base();
 	
+	//初始化给<label></label>标签赋值为当前时间
+	var newDate = new Date()
+	$(".noshow").text(baseObj.formatNDate(newDate))
 	
-	var myChart = echarts.init(document.getElementById('main'));
+	//处理
+	/*$(".select").change(function(){
+		if($(".select").val() == ''){
+			var date = new Date()
+			$("label").text(baseObj.formatNDate(date))
+		} else {
+			$("label").text(baseObj.formatNDate($(".select").val()))
+		}
+	})*/
+	
+	
+	/*var myChart = echarts.init(document.getElementById('main'));
 				var optionBar = {
 					grid: {  
 					    left: '2%',  
@@ -362,23 +376,11 @@ $(function(){
 				    ]
 				};
 				
-				myChart.setOption(optionBar);
+				myChart.setOption(optionBar);*/
 
-	//初始化给<label></label>标签赋值为当前时间
-	var newDate = new Date()
-	$("label").text(baseObj.formatDate(newDate))
-	
-	//处理
-	$(".select").change(function(){
-		if($(".select").val() == ''){
-			var date = new Date()
-			$("label").text(baseObj.formatDate(date))
-		} else {
-			$("label").text(baseObj.formatDate($(".select").val()))
-		}
-	})
 	
 	
+	ecaData("day")
 	//能源产耗分析	
 	function ecaData(tabName){	
 		var strJson = {
@@ -824,16 +826,16 @@ $(function(){
 		});
 	}
 		
-		//ecaData("day")
-		$(".right_tab p").on("click",function(){
-			console.log($(this).attr("data-tab"))
-			$(this).addClass("nh_active").siblings().removeClass("nh_active");
-			if($(this).attr("data-tab") == "day"){
-				ecaData('day')
-			} else if($(this).attr("data-tab") == "month") {
-				ecaData('month')
-			}
-		})
+	//ecaData("day")
+	$(".right_tab p").on("click",function(){
+		console.log($(this).attr("data-tab"))
+		$(this).addClass("nh_active").siblings().removeClass("nh_active");
+		if($(this).attr("data-tab") == "day"){
+			ecaData('day')
+		} else if($(this).attr("data-tab") == "month") {
+			ecaData('month')
+		}
+	})
 			
 	//能源成本优化	
 	function nycbyhCheats(xNameArray,CurrCostData,OptCostData){
@@ -2047,4 +2049,18 @@ $(function(){
   	})
   	myChart.hideLoading();*/
   	// 基于准备好的dom，初始化echarts实例
+	$(".seeCH_Detail").click(function(){
+		window.location.href = "chanHaoFXDepartment.html"
+	})
 	
+	$(".seeCB_Detail").click(function(){
+		window.location.href = "dongLiZaiXianYHz.html"
+	})
+	
+	$(".seeZB_Detail").click(function(){
+		window.location.href = "nengyuanZBdetails.html"
+	})
+	
+	$(".seeJL_Detail").click(function(){
+		window.location.href = "chanHaoFXDepartment.html"
+	})

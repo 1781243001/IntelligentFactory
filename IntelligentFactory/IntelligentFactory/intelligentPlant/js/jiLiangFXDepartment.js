@@ -6,17 +6,17 @@ $(function(){
 	var domainStr = baseObj.mainDomain;
 	var loading = new Loading()
 	
-	var jlDepartmentAll = baseObj.getQuery(window.location.search, 'sjson');
-	//var DepartmentAll = '[{"id":"5466","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
-	/*var P = '<p>'+jlDepartmentAll+'</p><p>第三方斯蒂芬</p>';
+	var jiLiangDataAll = baseObj.getQuery(window.location.search, 'sjson');
+	//var jiLiangDataAll = '[{"id":"5466","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
+	/*var P = '<p>'+jiLiangDataAll+'</p><p>第三方斯蒂芬</p>';
 	$("body").append(P)*/
 	
-	if(jlDepartmentAll == ""){
+	if(jiLiangDataAll == ""){
 		//bm_mrAreaListData()
 	} else {
-		localStorage.setItem("jlDepartment",jlDepartmentAll);
-		var jlDepartment = JSON.parse(localStorage.getItem("jlDepartment"));
-		console.log(jlDepartment)
+		localStorage.setItem("jiLiangData",jiLiangDataAll);
+		var jiLiangData = JSON.parse(localStorage.getItem("jiLiangData"));
+		console.log(jiLiangData)
 		//bm_dzAreaListData(Department)
 	}
     
@@ -31,9 +31,9 @@ $(function(){
 			console.log("这是定制页面")
 			$(".bodyall").css({"padding-bottom":".88rem"})
 			$(".footer").css({"display":'block'})
-			//var Department = JSON.parse(localStorage.getItem("Department")) || [];
-			//console.log(Department)
-			//bm_dzAreaListData(Department)
+			//var jiLiangData = JSON.parse(localStorage.getItem("jiLiangData")) || [];
+			//console.log(jiLiangData)
+			//bm_dzAreaListData(jiLiangData)
 		} else if($(this).text() == "切换到默认"){
 			//bm_mrAreaListData()
 			$(".bodyall").css({"padding-bottom":"0"})

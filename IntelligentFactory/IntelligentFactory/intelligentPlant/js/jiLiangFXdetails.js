@@ -7,7 +7,7 @@ $(function(){
 	var loading = new Loading()
 	zbsmbData()
 	zbsData()
-	
+	var jzId = '1910000';
 	
 	
 	var noticeCode = baseObj.getQuery(window.location.search, 'sjson');
@@ -418,9 +418,54 @@ $(function(){
 	  	myChartJl.setOption(jlOption);
 	  	myChartJl.on('click', function(param){
 			console.log(param)
-		 	console.log(param.name)
+		 	console.log(param.data.areaid)
+		 	var AreaId = param.data.areaid;
+		 	mxList(AreaId,jzId)
 		});
 	}
+	
+	function mxList(AreaId,jzId){
+ 		var strJson = {
+            AppID: "zb.s20170704000000001",
+            DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
+            EquipSN: "92203450-4267-4AA1-93DB-45CE7C2097DE",
+            EquipType: "iPhone",
+            IsEncrypted: 'false',
+            UserID: "test",
+            RequestMethod: "1b363376-cfba-4b3e-bc48-53e361f3de1e|5a4cc434-8cfc-4760-ac78-aeafae8697f2",//"54e36de2-18c2-43f4-ae7c-28348c141059|41a36aa1-d997-4ab2-894c-7eefad6e7f91",
+            RequestParams: [{"value":AreaId,"key":"AreaId"},{"value":jzId,"key":"Condition1"},{"value":"1","key":"DateType"},{"value":"2017-06-18","key":"DateTime"}]
+        }
+		
+		$.ajax({
+		   	type: "post",
+	        async: true,
+	        url: domainStr+"/app/api/MobileBusiness/GetPageViewData",//"http://localhost:11979/api/MobileBusiness/GetPageViewData",
+	        contentType: "application/x-www-form-urlencoded",
+	        data: JSON.stringify(strJson),
+		   	success: function(msg){
+		   		$(".fx_titleBox").empty()
+		   		console.log(JSON.parse(msg))
+		   		var mxListData = JSON.parse(msg).meterDetailList;
+		   		var mxListDome = "";
+		   		$.each(mxListData, function(i) {
+		   			mxListDome += 	'<li>'+
+										'<p>'+mxListData[i].areaName+'</p>'+
+										'<p>'+mxListData[i].meterName+'</p>'+
+										'<p>'+mxListData[i].stationNum+'</p>'+
+										//'<p>'+mxListData[i].stationNum+'</p>'+
+										'<p>'+mxListData[i].preMeterData+'/'+mxListData[i].aftMeterData+'</p>'+
+										'<p>'+mxListData[i].isUpdate+'</p>'+
+									'</li>';
+		   		});
+		   		$(".fx_titleBox").append(mxListDome)
+		   	},
+		   	error: function (XMLHttpRequest, textStatus, errorThrown) {
+				//loading.hide();
+	            //loading.alertMsg('获取问题类型失败！');
+			}
+		});
+ 	}
+	
   	function zbsData(){
   		var eareJson = {
 			"AppID":"zb.s20170704000000001",
@@ -444,9 +489,10 @@ $(function(){
 	        	var VData = new Array();
 	        	var RData = new Array();
 	        	var xName = new Array();
+	        	var VObj = {namme:"",value:"",id:""};
 	        	$.each(barData, function(i) {
-	        		VData.push(barData[i].V.y)
-	        		RData.push(barData[i].R.y)
+	        		VData.push({namme:"",value:barData[i].V.y,areaid:barData[i].V.areaid})
+	        		RData.push({namme:"",value:barData[i].R.y,areaid:barData[i].R.areaid})
 	        		xName.push(barData[i].R.areaname)
 	        	});
 	        	console.log(VData)

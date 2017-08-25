@@ -7,7 +7,7 @@ $(function(){
     var domainStr = baseObj.mainDomain;
     var loading = new Loading()
 
-    loading.show()
+    //loading.show()
     var DepartmentAll = baseObj.getQuery(window.location.search, 'sjson');
 	//var DepartmentAll = '[{"id":"5466","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
 	/*var P = '<p>'+DepartmentAll+'</p><p>第三方斯蒂芬</p>';

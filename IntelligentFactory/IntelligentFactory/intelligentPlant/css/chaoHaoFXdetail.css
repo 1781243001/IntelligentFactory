@@ -117,7 +117,7 @@
 
 .tbox_bottom{
 	width: 100%;
-	margin-top: .7rem;
+	margin-top: .4rem;
 }
 
 .tbox_bottom div{
@@ -163,6 +163,7 @@
 	line-height: .4rem;
 	font-size: .24rem;
 	text-align: center;
+	margin-top: .2rem;
 	color: #333333;
 }
 

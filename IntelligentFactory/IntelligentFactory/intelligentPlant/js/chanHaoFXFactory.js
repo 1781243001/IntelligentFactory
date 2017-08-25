@@ -6,17 +6,17 @@ $(function(){
 	var baseObj = new Base();
 	var domainStr = baseObj.mainDomain;
 	var loading = new Loading()
-	var FactoryDataAll = baseObj.getQuery(window.location.search, 'sjson');
-	//var FactoryDataAll = '[{"id":"54600","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
-	/*var P = '<p>'+FactoryDataAll+'</p><p>第三方斯蒂芬</p>'
+	var chanHaoDZAll = baseObj.getQuery(window.location.search, 'sjson');
+	//var chanHaoDZAll = '[{"id":"54600","text":"化工部东区","orderId":0,"selected":1},{"id":"5461","text":"化工部西区","orderId":0,"selected":1}]'
+	/*var P = '<p>'+chanHaoDZAll+'</p><p>第三方斯蒂芬</p>'
 	$("body").append(P)*/
 	
-	if(FactoryDataAll == ""){
+	if(chanHaoDZAll == ""){
 		bm_mrAreaListData()
 	} else {
-		localStorage.setItem("FactoryData",FactoryDataAll);
-		var FactoryData = JSON.parse(localStorage.getItem("FactoryData"));
-		bm_dzAreaListData(FactoryData)
+		localStorage.setItem("chanHaoData",chanHaoDZAll);
+		var chanHaoData = JSON.parse(localStorage.getItem("chanHaoData"));
+		bm_dzAreaListData(chanHaoData)
 		
 	}
 	$(".company_name p").on("click",function(){
@@ -30,9 +30,9 @@ $(function(){
 			$(".chbodyall").css({"padding-bottom":".88rem"})
 			console.log("这是定制页面")
 			$(".footer").css({"display":'block'})
-			var Department = JSON.parse(localStorage.getItem("Department")) || [];
-			console.log(Department)
-			bm_dzAreaListData(Department)
+			var chanHaoData = JSON.parse(localStorage.getItem("chanHaoData")) || [];
+			console.log(chanHaoData)
+			bm_dzAreaListData(chanHaoData)
 		} else if($(this).text() == "切换到默认"){
 			bm_mrAreaListData()
 			$(".chbodyall").css({"padding-bottom":"0"})
@@ -50,7 +50,7 @@ $(function(){
 	
 	
 	
-	//jzData()
+	jzData()
 	function jzData(){
 		loading.show();
   		var jzJson = {
@@ -99,7 +99,7 @@ $(function(){
 		})
   	}
 	
-	function bm_dzAreaListData(FactoryData){
+	function bm_dzAreaListData(chanHaoData){
 		$(".chdzListBody").empty();
 		$(".chdzListBody").css({"display":"block"}).siblings().css({"display":"none"});
 		$(".footer").css({"display":"block"})
@@ -110,12 +110,12 @@ $(function(){
 			}
 		});
     	var listDome = "";
-    	$.each(FactoryData, function(i) {
+    	$.each(chanHaoData, function(i) {
     		listDome += '<section class="outBox" style="margin-top: 0px;">'+
 							'<div class="title clear">'+
-								'<div data-areaId='+FactoryData[i].id+' class="left-c areaId">'+decodeURIComponent(decodeURIComponent(FactoryData[i].text))+'</div>'+
+								'<div data-areaId='+chanHaoData[i].id+' class="left-c areaId">'+decodeURIComponent(decodeURIComponent(chanHaoData[i].text))+'</div>'+
 							'</div>'+
-							'<div id="ch_index_'+FactoryData[i].id+'" class="chfx_cbox_dz"></div>'+
+							'<div id="ch_index_'+chanHaoData[i].id+'" class="chfx_cbox_dz"></div>'+
 						'</section>';
     	});
     	$(".chdzListBody").append(listDome);
