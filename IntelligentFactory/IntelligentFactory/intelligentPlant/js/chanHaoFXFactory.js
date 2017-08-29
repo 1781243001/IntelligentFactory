@@ -43,8 +43,7 @@ $(function(){
 	})
 	
 	$(".footer").on("click",function(){
-		var DepartmentData = "DepartmentData"
-		window.location.href = 'chanHaoFXDepartment.html?DepartmentData='+DepartmentData;
+		window.location.href = 'dingZHiGuanWangTiaoZhuanchanHao.html?DepartmentDatachanHao=DepartmentDatachanHao';
 	})
 	
 	
@@ -409,7 +408,7 @@ $(function(){
 	        		listDome += '<section class="outBox" style="margin-top: 0px;">'+
 									'<div class="title clear">'+
 										'<div data-areaId='+listData[i].id+' class="left-c areaId">'+listData[i].text+'</div>'+
-										'<div data-areaId='+listData[i].id+' class="seeCh_Detail">车间列表</div>'+
+										'<div data-areaId='+listData[i].id+' class="seeCh_Detail">下级列表</div>'+
 									'</div>'+
 									'<div id="ch_index_'+listData[i].id+'" class="chfx_cbox_mr"></div>'+
 								'</section>';

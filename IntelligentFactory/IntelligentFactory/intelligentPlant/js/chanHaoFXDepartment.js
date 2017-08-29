@@ -43,8 +43,7 @@ $(function(){
 	})
 	
 	$(".footer").on("click",function(){
-		var DepartmentData = "DepartmentData"
-		window.location.href = 'chanHaoFXDepartment.html?DepartmentData='+DepartmentData;
+		window.location.href = 'dingZHiGuanWangTiaoZhuanchanHao.html?DepartmentDatachanHao=DepartmentDatachanHao';
 	})
 	
 	

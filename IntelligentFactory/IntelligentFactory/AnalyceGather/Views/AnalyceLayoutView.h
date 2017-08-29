@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailedInformationModel.h"
+
+@protocol AnalyceLayoutViewDelegate <NSObject>
+
+-(void)returnAnalyceArray:(NSMutableArray *)array;
+
+@end
+
 @interface AnalyceLayoutView : UIScrollView
 
 /**
@@ -22,5 +29,7 @@
                              AndTreeArray:(NSArray *)treeArray
                               selectArray:(NSMutableArray *)array;
 
+
+@property (nonatomic,weak)id<AnalyceLayoutViewDelegate> analyDelegate;
 
 @end

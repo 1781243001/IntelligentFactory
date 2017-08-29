@@ -5,18 +5,18 @@ $(function(){
 	var baseObj = new Base();
 	
 	//初始化给<label></label>标签赋值为当前时间
-	var newDate = new Date()
-	$(".noshow").text(baseObj.formatNDate(newDate))
+	$("label").text(baseObj.formatNDate(new Date()))
+	var changeData = $("label").text();
 	
-	//处理
-	/*$(".select").change(function(){
+	$(".select").change(function(){
 		if($(".select").val() == ''){
-			var date = new Date()
-			$("label").text(baseObj.formatNDate(date))
+			$("label").text(baseObj.formatNDate(changeData))
+			changeData = $("label").text()
 		} else {
 			$("label").text(baseObj.formatNDate($(".select").val()))
+			changeData = $("label").text()
 		}
-	})*/
+	})
 	
 	
 	/*var myChart = echarts.init(document.getElementById('main'));
@@ -2050,17 +2050,17 @@ $(function(){
   	myChart.hideLoading();*/
   	// 基于准备好的dom，初始化echarts实例
 	$(".seeCH_Detail").click(function(){
-		window.location.href = "chanHaoFXDepartment.html"
+		window.location.href = "chanHaoFXDepartment.html?areaId=&FactoryData=";
 	})
 	
 	$(".seeCB_Detail").click(function(){
-		window.location.href = "dongLiZaiXianYHz.html"
+		window.location.href = "dongLiZaiXianYHz.html?areaId=&FactoryData=";
 	})
 	
 	$(".seeZB_Detail").click(function(){
-		window.location.href = "nengyuanZBdetails.html"
+		window.location.href = "nengyuanZBdetails.html?areaId=&FactoryData=";
 	})
 	
 	$(".seeJL_Detail").click(function(){
-		window.location.href = "chanHaoFXDepartment.html"
+		window.location.href = "jiLiangFXDepartment.html?areaId=&FactoryData=";
 	})

@@ -11,11 +11,18 @@
 #import "IFWebRequestViewModel.h"
 #import "InformationDataModel.h"
 #import "AnalyceLayoutView.h"
-@interface IFDiffereceAnalyceController ()<TLSegmentedControlDelegate>
+#import "FunctionButton.h"
+@interface IFDiffereceAnalyceController ()<TLSegmentedControlDelegate,AnalyceLayoutViewDelegate>{
+    
+   
+    
+}
 @property (nonatomic,strong) NSArray *mediumArray;
 @property (nonatomic,strong) TLSegmentedControl *segmentBar;
 @property (nonatomic,strong) NSArray *treeArray; //平铺数据
 @property (nonatomic,strong) NSMutableArray *selectArray;
+@property (nonatomic,strong) NSMutableArray *returnArray;//返回数据
+
 @end
 
 @implementation IFDiffereceAnalyceController
@@ -34,12 +41,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [RequestService AFN_JSONResponseUrlType:RequestloginType requestWay:RequestGet param:nil modelClass:nil responseBlock:^(id dataObj, NSError *error) {
-//        
-//        
-//        
-//    }];
-    self.navigationItem.title = @"差异分析管网配置";
+    [self navigationBar];
+    [self requestNetWork];
+}
+
+-(void)requestNetWork{
     [self.view beginLoading];
     dispatch_queue_t disqueue =  dispatch_queue_create("network", DISPATCH_QUEUE_CONCURRENT);
     dispatch_group_t group = dispatch_group_create();
@@ -47,7 +53,7 @@
     dispatch_async(disqueue, ^{
         dispatch_group_async(group,disqueue, ^{
             dispatch_group_enter(group);//放入group
-
+            
             [IFWebRequestViewModel reqestDiffereceAnalyceMedium:^(id dataObj,NSError *error) {
                 dispatch_group_leave(group);
                 if (error) {
@@ -60,14 +66,14 @@
         });
         dispatch_group_async(group, disqueue, ^{
             dispatch_group_enter(group);//放入group
-
+            
             [IFWebRequestViewModel reqestDiffereceAnalyceArea:^(id data, NSError *error) {
                 dispatch_group_leave(group);
                 if (error) {
                     
                 }else{
                     _treeArray =[(InformationDataModel *)data treeList];
-
+                    
                 }
             }];
         });
@@ -75,7 +81,7 @@
         dispatch_group_notify(group, disqueue, ^{
             // 汇总结果
             [self.view endLoading];
-
+            
             dispatch_group_enter(group);//放入group
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self initSubview];
@@ -86,6 +92,21 @@
     });
 }
 
+-(void)navigationBar{
+    self.navigationItem.title = @"差异分析管网配置";
+    WEAKSELF
+    FunctionButton  *button = [[FunctionButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30) withType:(UIButtonTypeCustom) image:@"sequence_delete.png" block:^(UIButton *sender) {
+        //        NSString *newFilePath = [weakSelf newFilePath:weakSelf.navigationTitle];
+        //        BOOL success = [NSKeyedArchiver archiveRootObject:weakSelf.selelctArr toFile:newFilePath];
+        //        DHLog(@"%d",success);
+        if ([weakSelf.differeceDelegate respondsToSelector:@selector(analyceReturnWebViewData:)]) {
+            [weakSelf.differeceDelegate analyceReturnWebViewData:weakSelf.returnArray];
+        }
+        [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    UIBarButtonItem *iten = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.rightBarButtonItems = @[iten];
+}
 
 -(void)initSubview{
     if (_mediumArray.count==0) {
@@ -108,6 +129,7 @@
 
 -(void)createAnalyceView:(NSInteger)index{
     AnalyceLayoutView *view = [[AnalyceLayoutView alloc]initLayoutViewWithInfoDic:[_mediumArray objectAtIndex:index] AndTreeArray:_treeArray selectArray:[_selectArray objectAtIndex:index]];
+    view.analyDelegate = self;
     view.tag = 814;
     view.frame = CGRectMake(0, CGRectGetMaxY(_segmentBar.frame), kScreen_Width, kScreen_Height - CGRectGetHeight(_segmentBar.frame));
     [self.view addSubview:view];
@@ -115,6 +137,12 @@
     image.frame = CGRectMake(0, 0, kScreen_Width, 10);
     [view addSubview:image];
 
+}
+#pragma mark ——选中的数据
+-(void)returnAnalyceArray:(NSMutableArray *)array{
+
+    _returnArray = array;
+    
 }
 
 -(TLSegmentedControl *)segmentBar{

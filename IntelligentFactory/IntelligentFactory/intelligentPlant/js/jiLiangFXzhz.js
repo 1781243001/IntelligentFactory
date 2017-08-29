@@ -44,8 +44,7 @@ $(function(){
 	})
     
     $(".footer").on("click",function(){
-		var DepartmentData = "DepartmentData"
-		window.location.href = 'jiLiangFXDepartment.html?DepartmentData='+DepartmentData;
+		window.location.href = 'dingZHiGuanWangTiaoZhuanjiLiang.html?DepartmentDatajiLiang=DepartmentDatajiLiang';
 	})
     
     $(".left-c").on("click",function(){

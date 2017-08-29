@@ -275,28 +275,32 @@ table tr td{
 /*总成本页面*/
 .dl_nav{
 	margin: 0 auto;
-	width: 4.08rem;
-	height: .48rem;
-	border: 1px solid #005BAC;
-	border-radius: 2px;
 }
-.dl_nav p{
-	width: 1.36rem;
-	height: .48rem;
+.dl_nav dl{
+	width: 2.36rem;
+	height: 1rem;
 	float: left;
 	font-size: .24rem;
 	line-height: .52rem;
 	text-align: center;
 	color: #333;
 	box-sizing: border-box;
-	border-right: 1px solid #005BAC;
+	background: url(../img/sg.png) no-repeat right center;
+	background-size: 1px .7rem;
 }
-.dl_nav p:last-child{
-	border-right: 0;
+.dl_nav dl:last-child{
+	background: none;
+}
+
+.dl_nav dl dt{
+	font-size: .4rem;
+}
+
+.dl_nav dl dd{
+	font-size: .28rem;
 }
 .dl_nav .dl_active{
-	background: #005bac;
-	color: #fff;
+	color: #005bac;
 }
 
 .listContent{

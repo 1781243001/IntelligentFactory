@@ -50,11 +50,14 @@ static NSIndexPath *oldIndexPath;       //旧路径
     if (_selelctArr.count < 20) {
         for (DetailedInformationModel *mo in _selelctArr) {
             if (model.ID == mo.ID) {
-                [PromptMessage show:@"您已经添加过"];
+                [PromptMessage show:@"已存在"];
                 return;
             }
         }
         [_selelctArr addObject:model];
+        if ([self.analyDelegate respondsToSelector:@selector(returnAnalyceArray:)]) {
+            [_analyDelegate returnAnalyceArray:_selelctArr];
+        }
     }else{
         [PromptMessage show:@"对不起，您添加已经达到上限"];
     }

@@ -10,7 +10,8 @@
 #import "IFSelectOrganizeController.h"
 #import "FunctionButton.h"
 #import "FeedbackIdeaViewController.h"
-@interface IF_WebHtmlViewController ()<UIWebViewDelegate,UINavigationControllerDelegate,selectOrganizeDelegate>
+#import "IFDiffereceAnalyceController.h"
+@interface IF_WebHtmlViewController ()<UIWebViewDelegate,UINavigationControllerDelegate,selectOrganizeDelegate,DiffereceAnalyceDelegate>
 {
     
 }
@@ -25,6 +26,17 @@
 -(void)dealloc{
     DHLog(@"%@被释放了",[super class]);
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = _navigationTitle;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationItem.title = @"";
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,7 +80,6 @@
 }
 
 -(void)createNavigationBar{
-    self.navigationItem.title = _navigationTitle;
     WEAKSELF;
     FunctionButton *FB = [[FunctionButton  alloc] initWithFrame:CGRectMake(0, 0, 25, 25) withType:(UIButtonTypeCustom) image:@"home_feedback" block:^(UIButton *sender) {
         
@@ -119,7 +130,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString *urlStr = [NSString stringWithFormat:@"%@",request.URL];
 
-    if([urlStr rangeOfString:@"DepartmentData"].location !=NSNotFound){
+    if([urlStr rangeOfString:@"DepartmentDatachanHao=DepartmentDatachanHao"].location !=NSNotFound || [urlStr rangeOfString:@"DepartmentDatajiLiang=DepartmentDatajiLiang"].location !=NSNotFound){
         [self selectOrganization];
     }else if ([urlStr rangeOfString:@"&FactoryData="].location !=NSNotFound){
         NSString *string = @"&FactoryData=";
@@ -130,7 +141,11 @@
         web.navigationTitle = _navigationTitle;
         [self.navigationController pushViewController:web animated:YES];
         return NO;
-
+    }else if([urlStr rangeOfString:@"DepartmentDatachayi=DepartmentDatachayi"].location !=NSNotFound){
+        IFDiffereceAnalyceController *analy = [[IFDiffereceAnalyceController alloc]init];
+        analy.differeceDelegate = self;
+        UINavigationController *nc= [[UINavigationController alloc]initWithRootViewController:analy];
+        [self.navigationController presentViewController:nc animated:YES completion:nil];
     }
     return YES;
 }
@@ -148,6 +163,10 @@
 - (BOOL)navigationShouldPopOnBackButton
 {
     return YES;
+}
+
+-(void)analyceReturnWebViewData:(NSMutableArray *)array{
+    [self selelctOrganize:array];
 }
 
 -(void)selelctOrganize:(NSArray *)array{

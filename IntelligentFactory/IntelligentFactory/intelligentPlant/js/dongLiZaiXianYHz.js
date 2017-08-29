@@ -8,150 +8,280 @@ $(function(){
 	var baseObj = new Base();
 	var domainStr = baseObj.mainDomain;
 	
-	var newDate = new Date()
-	$(".noshow").text(baseObj.formatNDate(newDate))
+	$("label").text(baseObj.formatNDate(new Date()))
+	var changeData = $("label").text();
+	console.log(changeData)
+	
+	$(".select").change(function(){
+		if($(".select").val() == ''){
+			$("label").text(baseObj.formatNDate(changeData))
+			changeData = $("label").text()
+			tableData(changeData)
+		} else {
+			$("label").text(baseObj.formatNDate($(".select").val()))
+			changeData = $("label").text()
+			tableData(changeData)
+		}
+	})
 	
 	
 	console.log(baseObj.formatTime("2017/7/24 17:00:09"))
 	//表格数据
-	var dlqubgParam = {
-        AppID: "zb.s20170704000000001",
-        DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
-        EquipSN: "92203450-4267-4AA1-93DB-45CE7C2097DE",
-        EquipType: "iPhone",
-        IsEncrypted: 'false',
-        UserID: "test",
-        RequestMethod: "34c11e45-4d31-4ad6-b198-b088d27eb0cc|a2876720-747a-4b82-b017-53f7a3e1e3b4",
-        RequestParams: [{"value":"2017-07-24","key":" urrdate"}]
-    }
+	tableData(changeData)
+	function tableData(changeData){
+		console.log(changeData)
+		loading.show()
+		var dlqubgParam = {
+	        AppID: "zb.s20170704000000001",
+	        DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
+	        EquipSN: "92203450-4267-4AA1-93DB-45CE7C2097DE",
+	        EquipType: "iPhone",
+	        IsEncrypted: 'false',
+	        UserID: "test",
+	        RequestMethod: "34c11e45-4d31-4ad6-b198-b088d27eb0cc|a2876720-747a-4b82-b017-53f7a3e1e3b4",
+	        RequestParams: [{"value":changeData,"key":" urrdate"}]
+	    }
+		console.log(dlqubgParam)
+		$.ajax({
+		   	type: "post",
+	        async: true,
+	        url: domainStr+"/app/api/MobileBusiness/GetPageViewData",//"http://localhost:11979/api/MobileBusiness/GetPageViewData",
+	        contentType: "application/x-www-form-urlencoded",
+	        data: JSON.stringify(dlqubgParam),
+		   	success: function(msg){
+		   		loading.hide()
+		   		console.log(JSON.parse(msg.d).Status)
+		   		if(JSON.parse(msg.d).Status == "1"){
+		   			
+		   			loading.hide()
+			   		var tbData = JSON.parse(msg.d).ResultDataInfos;
+			   		console.log(tbData)
+			   		var tbCurrCostData = new Array();//当前
+			   		var tbOptCostData = new Array();//节约
+			   		var tbSavingCostData = new Array();//优化
+			   		var pieName = new Array();//饼图名称
+			   		var tbdqDataAll = new Array();
+			   		var xName = new Array();
+			   		var bgData = "";
+			   		$.each(tbData, function(i) {
+			   			if(i>0){
+			   				var tbCurrCostDataObj = {label:{
+			   					normal:{
+			   						textStyle:{
+			   							fontSize:'10'
+			   						}
+			   					}
+			   				}}
+				   			tbCurrCostDataObj.value = tbData[i].CurrCost;
+				   			tbCurrCostDataObj.name = tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2);
+				   			tbCurrCostData.push(tbCurrCostDataObj)
+				   			
+				   			/*var tbOptCostDataObj = {label:{
+			   					normal:{
+			   						textStyle:{
+			   							fontSize:'10'
+			   						}
+			   					}
+			   				}}
+				   			tbOptCostDataObj.value = tbData[i].OptCost;
+				   			tbOptCostDataObj.name = tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2);
+				   			tbOptCostData.push(tbOptCostDataObj)
+				   			
+				   			var tbSavingCostDataObj = {label:{
+			   					normal:{
+			   						textStyle:{
+			   							fontSize:'10'
+			   						}
+			   					}
+			   				}}
+				   			tbSavingCostDataObj.value = tbData[i].SavingCost;
+				   			tbSavingCostDataObj.name = tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2);
+				   			tbSavingCostData.push(tbSavingCostDataObj)*/
+							//debugger
+							
+							xName.push(tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2))
+							tbOptCostData.push(tbData[i].OptCost)
+							tbSavingCostData.push(tbData[i].SavingCost)
+							
+							console.log(tbOptCostData)
+							
+							
+							
+							
+							bgData += '<div class="dl_mx_conetnt clear">'+
+									'<ul class="dl_mxleft clear">'+
+										'<li class="clear" style="margin-top: .4rem;">'+
+											'<p style="color: #333333; font-size: .32rem; text-align: left;">'+tbData[i].OptimisedItem+'</p>'+
+										'</li>'+
+										'<li class="clear">'+
+											'<p>当前值:</p><p>'+tbData[i].CurrVal+'</p>'+
+										'</li>'+
+										'<li class="clear">'+
+											'<p>优化值:</p><p>'+tbData[i].OptimisedVal+'</p>'+
+										'</li>'+
+									'</ul>'+
+									'<ul class="dl_mxright clear">'+
+										'<li class="clear" style="margin-top: .4rem;">'+
+											'<p>节约成本:</p><p style="color: #005BAC;">'+tbData[i].SavingCost+'</p>'+
+										'</li>'+
+										'<li class="clear">'+
+											'<p>当前成本</p><p>'+tbData[i].CurrCost+'</p>'+
+										'</li>'+
+										'<li class="clear">'+
+											'<p>优化成本</p><p>'+tbData[i].OptCost+'</p>'+
+										'</li>'+
+									'</ul>'+
+								'</div>';
+			   				
+			   			} else {
+			   				if (JSON.parse(msg.d).Message != undefined || JSON.parse(msg.d).Message != '') {
+			                    //loading.alertMsg(JSON.parse(msg.d).msg);
+			                } else {
+			                    //loading.alertMsg('获取问题类型失败！');
+			                }
+			   			}
+			   		});	
+			   		$(".listContent").append(bgData)
+			   		console.log(tbCurrCostData)
+			   		tbNavTab(tbCurrCostData)
+			   		//debugger
+			   		$(".dl_nav dl").on("click",function(){
+			   			$(this).addClass("dl_active").siblings().removeClass("dl_active")
+			   			if($(this).find("dd").text() == "当前成本"){
+			   				tbNavTab(tbCurrCostData)
+							tabName("总成本",changeData)
+							console.log(changeData)
+							$(".addName_yh").text("24小时内总优化成本趋势")
+			 				$(".addName_jy").text("24小时内总节约成本趋势")
+							return
+			   			} 
+			   			if($(this).find("dd").text() == "节约成本"){
+			   				//tbNavTab(tbSavingCostData)
+			   				bar(tbSavingCostData,xName)
+			   				tabName("总成本",changeData)
+			   				$(".addName_yh").text("24小时内总优化成本趋势")
+			 				$(".addName_jy").text("24小时内总节约成本趋势")
+			   				return
+			   			} 
+			   			if($(this).find("dd").text() == "优化成本"){
+			   				//tbNavTab(tbOptCostData)
+			   				bar(tbOptCostData,xName)
+			   				tabName("总成本",changeData)
+			   				$(".addName_yh").text("24小时内总优化成本趋势")
+			 				$(".addName_jy").text("24小时内总节约成本趋势")
+			   				return
+			   			} 
+			   		})
+		   		}
+		   		loading.hide()	
+		   	},
+		   	error: function (XMLHttpRequest, textStatus, errorThrown) {
+				console.log("错误")
+			    /*console.log(XMLHttpRequest.responseText)
+			    console.log(textStatus)
+			    console.log(errorThrown)*/
+				
+			}
+		});
+	}
 	
-	$.ajax({
-	   	type: "post",
-        async: true,
-        url: domainStr+"/app/api/MobileBusiness/GetPageViewData",//"http://localhost:11979/api/MobileBusiness/GetPageViewData",
-        contentType: "application/x-www-form-urlencoded",
-        data: JSON.stringify(dlqubgParam),
-	   	success: function(msg){
-	   		console.log(JSON.parse(msg.d).Status)
-	   		if(JSON.parse(msg.d).Status == "1"){
-	   			console.log(JSON.parse(msg.d))
-	   			loading.hide()
-		   		var tbData = JSON.parse(msg.d).ResultDataInfos;
-		   		var tbCurrCostData = new Array();//当前
-		   		var tbOptCostData = new Array();//节约
-		   		var tbSavingCostData = new Array();//优化
-		   		var pieName = new Array();//饼图名称
-		   		var tbdqDataAll = new Array();
-		   		var bgData = "";
-		   		$.each(tbData, function(i) {
-		   			if(i>0){
-		   				var tbCurrCostDataObj = {label:{
-		   					normal:{
-		   						textStyle:{
-		   							fontSize:'10'
-		   						}
-		   					}
-		   				}}
-			   			tbCurrCostDataObj.value = tbData[i].CurrCost;
-			   			tbCurrCostDataObj.name = tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2);
-			   			tbCurrCostData.push(tbCurrCostDataObj)
-			   			
-			   			var tbOptCostDataObj = {label:{
-		   					normal:{
-		   						textStyle:{
-		   							fontSize:'10'
-		   						}
-		   					}
-		   				}}
-			   			tbOptCostDataObj.value = tbData[i].OptCost;
-			   			tbOptCostDataObj.name = tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2);
-			   			tbOptCostData.push(tbOptCostDataObj)
-			   			
-			   			var tbSavingCostDataObj = {label:{
-		   					normal:{
-		   						textStyle:{
-		   							fontSize:'10'
-		   						}
-		   					}
-		   				}}
-			   			tbSavingCostDataObj.value = tbData[i].SavingCost;
-			   			tbSavingCostDataObj.name = tbData[i].OptimisedItem.substring(0, tbData[i].OptimisedItem.length - 2);
-			   			tbSavingCostData.push(tbSavingCostDataObj)
-						//debugger
-						bgData += '<div class="dl_mx_conetnt clear">'+
-								'<ul class="dl_mxleft clear">'+
-									'<li class="clear" style="margin-top: .4rem;">'+
-										'<p style="color: #333333; font-size: .32rem; text-align: left;">'+tbData[i].OptimisedItem+'</p>'+
-									'</li>'+
-									'<li class="clear">'+
-										'<p>当前值:</p><p>'+tbData[i].CurrVal+'</p>'+
-									'</li>'+
-									'<li class="clear">'+
-										'<p>优化值:</p><p>'+tbData[i].OptimisedVal+'</p>'+
-									'</li>'+
-								'</ul>'+
-								'<ul class="dl_mxright clear">'+
-									'<li class="clear" style="margin-top: .4rem;">'+
-										'<p>节约成本:</p><p style="color: #005BAC;">'+tbData[i].SavingCost+'</p>'+
-									'</li>'+
-									'<li class="clear">'+
-										'<p>当前成本</p><p>'+tbData[i].CurrCost+'</p>'+
-									'</li>'+
-									'<li class="clear">'+
-										'<p>优化成本</p><p>'+tbData[i].OptCost+'</p>'+
-									'</li>'+
-								'</ul>'+
-							'</div>';
-		   				
-		   			} else {
-		   				if (JSON.parse(msg.d).Message != undefined || JSON.parse(msg.d).Message != '') {
-		                    //loading.alertMsg(JSON.parse(msg.d).msg);
-		                } else {
-		                    //loading.alertMsg('获取问题类型失败！');
-		                }
-		   			}
-		   		});	
-		   		$(".listContent").append(bgData)
-		   		console.log(tbCurrCostData)
-		   		tbNavTab(tbCurrCostData)
-		   		//debugger
-		   		$(".dl_nav p").on("click",function(){
-		   			$(this).addClass("dl_active").siblings().removeClass("dl_active")
-		   			if($(this).text() == "当前成本"){
-		   				tbNavTab(tbCurrCostData)
-						tabName("总成本")	
-						$(".addName_yh").text("24小时内总优化成本趋势")
-		 				$(".addName_jy").text("24小时内总节约成本趋势")
-						return
-		   			} 
-		   			if($(this).text() == "节约成本"){
-		   				tbNavTab(tbSavingCostData)
-		   				tabName("总成本")
-		   				$(".addName_yh").text("24小时内总优化成本趋势")
-		 				$(".addName_jy").text("24小时内总节约成本趋势")
-		   				return
-		   			} 
-		   			if($(this).text() == "优化成本"){
-		   				tbNavTab(tbOptCostData)
-		   				tabName("总成本")
-		   				$(".addName_yh").text("24小时内总优化成本趋势")
-		 				$(".addName_jy").text("24小时内总节约成本趋势")
-		   				return
-		   			} 
-		   		})
-	   		}
-	   		loading.hide()	
-	   	},
-	   	error: function (XMLHttpRequest, textStatus, errorThrown) {
-			console.log("错误")
-		    /*console.log(XMLHttpRequest.responseText)
-		    console.log(textStatus)
-		    console.log(errorThrown)*/
-			
-		}
-	});
 	
-	
+	function bar(CostData,xName){
+		echarts.dispose(document.getElementById('dot'));//先销毁实例再创建,不然就会创建多个echarts实例
+		var myChart = echarts.init(document.getElementById('dot'));
+		var barOption = {
+		    color: ['#3398DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		    	top: '10%',
+		        left: '3%',
+		        right: '4%',
+		        bottom: '20%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : xName,
+		            axisTick: {
+		                //alignWithLabel: true,
+		                show:false
+		            },
+		            //坐标轴线颜色
+		            axisLine:{
+	                    show: true,
+	                    lineStyle: {
+	                    	type: 'solid',
+	                    	color: "#eef2f9"
+	                    }
+	               	},
+	               	//坐标轴字体颜色
+	               	axisLabel: {
+	               		interval: 0,
+	                    show: true,
+	                    rotate: 50,
+	                    textStyle: {
+	                        color: '#89898e'
+	                    },
+	                    //margin: 8,
+	               	},
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		    		nameTextStyle:{
+		    			color:'#969696',
+		    			fontSize: 12,
+		    		},
+		    		nameGap: 22,
+		            axisTick: {
+		                //alignWithLabel: true,
+		                show:false
+		            },
+		            //坐标轴线颜色
+		            axisLine:{
+	                    show: false,
+	                    lineStyle: {
+	                    	type: 'solid',
+	                    	color: "#eef2f9"
+	                    }
+	               	},
+	               	//坐标轴字体颜色
+	               	axisLabel: {
+	                    show: true,
+	                    textStyle: {
+	                        color: '#89898e'
+	                    },
+	                    //margin: 8,
+	               	},
+	               	//max: 30,
+		        }
+		    ],
+		    series : [
+		        {
+		            //name:'直接访问',
+		            type:'bar',
+		            barWidth: '60%',
+		            data:CostData
+		        }
+		    ]
+		};
+		
+		myChart.on('click', function(param){
+		 	tabName(param.name+"成本")
+		 	console.log(param)
+		 	$(".addName_yh").text(param.name+"24小时内优化成本趋势")
+		 	$(".addName_jy").text(param.name+"24小时内节约成本趋势")
+		});
+		myChart.setOption(barOption);
+		myChart.hideLoading()
+	}
 	
 	
 	function tbNavTab(CostArray){
@@ -160,8 +290,8 @@ $(function(){
 		myChart.showLoading()
 		var option = {
 		    title: {
-		        text: '200565',
-		        subtext: '总优化成本',
+		        /*text: '200565',
+		        subtext: '总优化成本',*/
 		        x: 'center',
 		        y: 'center',
 		        textStyle: {
@@ -181,7 +311,7 @@ $(function(){
 		        {
 		            name:'成本',
 		            type:'pie',
-		            radius: ['42%', '58%'],
+		            radius: ['20%', '50%'],
 					center:['50%', '50%'],
 		            data:CostArray,
 		            itemStyle:{ 
@@ -215,18 +345,16 @@ $(function(){
 		};
 		myChart.on('click', function(param){
 		 	tabName(param.name+"成本")
-		 	$(".addName_yh").text("24小时内"+param.name+"优化成本趋势")
-		 	$(".addName_jy").text("24小时内"+param.name+"节约成本趋势")
+		 	$(".addName_yh").text(param.name+"24小时内优化成本趋势")
+		 	$(".addName_jy").text(param.name+"24小时内节约成本趋势")
 		});
 		myChart.setOption(option);
 		myChart.hideLoading()
 	}
 	
 		//切换图标名字函数
-	tabName("总成本")
-	function tabName(name){
-		console.log(name)
-		var newDate = baseObj.formatNDate(new Date())
+	tabName("总成本",changeData)
+	function tabName(name,changeData){
 		var dlqustParam = {
 	        AppID: "zb.s20170704000000001",
 	        DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
@@ -235,7 +363,7 @@ $(function(){
 	        IsEncrypted: 'false',
 	        UserID: "test",
 	        RequestMethod: "34c11e45-4d31-4ad6-b198-b088d27eb0cc|bd1d4856-4b95-4bd4-86ca-cd0085b45965",
-	        RequestParams: [{"value":""+newDate+"","key":" currdate"},{"value":""+name+"","key":" unitcode"}]
+	        RequestParams: [{"value":""+changeData+"","key":" currdate"},{"value":""+name+"","key":" unitcode"}]
 	   	}
 		console.log(dlqustParam)
 		loading.show()
@@ -259,8 +387,8 @@ $(function(){
 			   			/*if(){
 			   				
 			   			}*/
-			   			CurrCostArray.push(zData[i].CurrCost/10000)
-			   			OptCostArray.push(zData[i].OptCost/10000)
+			   			CurrCostArray.push(zData[i].CurrCost.toFixed(2))
+			   			OptCostArray.push(zData[i].OptCost.toFixed(2))
 			   			xTimesArray.push(baseObj.formatTime(zData[i].Times))
 			   			SavingCostArray.push(zData[i].SavingCost)
 			   		});

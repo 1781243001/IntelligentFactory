@@ -35,6 +35,11 @@ static NSIndexPath *oldIndexPath;       //旧路径
 
 @implementation IFSelectOrganizeController
 
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (NSMutableArray *)cellAttributesArray {
     if(_cellAttributesArray == nil) {
         _cellAttributesArray = [[NSMutableArray alloc] init];
@@ -63,7 +68,7 @@ static NSIndexPath *oldIndexPath;       //旧路径
     if (_selelctArr.count < 20) {
         for (DetailedInformationModel *mo in _selelctArr) {
             if (model.ID == mo.ID) {
-                [PromptMessage show:@"您已经添加过"];
+                [PromptMessage show:@"已存在"];
                 return;
             }
         }
@@ -82,21 +87,26 @@ static NSIndexPath *oldIndexPath;       //旧路径
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self navigationBar];
+    [self filePathData];
+    [self requsetOrganize:_navigationTitle];
+}
+
+-(void)navigationBar{
     self.navigationItem.title = [NSString stringWithFormat:@"%@%@", _navigationTitle,@"区域配置"];
     WEAKSELF;
     FunctionButton  *button = [[FunctionButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30) withType:(UIButtonTypeCustom) image:@"sequence_delete.png" block:^(UIButton *sender) {
-            NSString *newFilePath = [weakSelf newFilePath:_navigationTitle];
-            BOOL success = [NSKeyedArchiver archiveRootObject:_selelctArr toFile:newFilePath];
-            DHLog(@"%d",success);
-            if ([weakSelf.organizeDeleagate respondsToSelector:@selector(selelctOrganize:)]) {
-            [_organizeDeleagate selelctOrganize:_selelctArr];
+        NSString *newFilePath = [weakSelf newFilePath:weakSelf.navigationTitle];
+        BOOL success = [NSKeyedArchiver archiveRootObject:weakSelf.selelctArr toFile:newFilePath];
+        DHLog(@"%d",success);
+        if ([weakSelf.organizeDeleagate respondsToSelector:@selector(selelctOrganize:)]) {
+            [weakSelf.organizeDeleagate selelctOrganize:weakSelf.selelctArr];
         };
         [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
     }];
     UIBarButtonItem *iten = [[UIBarButtonItem alloc]initWithCustomView:button];
     self.navigationItem.rightBarButtonItems = @[iten];
-    [self filePathData];
-    [self requsetOrganize:_navigationTitle];
+ 
 }
 
 -(void)requsetOrganize:(NSString *)name{
@@ -108,9 +118,9 @@ static NSIndexPath *oldIndexPath;       //旧路径
             if (error) {
                 
             }else{
-                self.dataSource =[(InformationDataModel *)dataObj areaList];
+                weakSelf.dataSource =[(InformationDataModel *)dataObj areaList];
             }
-            [self initSubviews];
+            [weakSelf initSubviews];
         }];
 
     }else{
@@ -120,15 +130,12 @@ static NSIndexPath *oldIndexPath;       //旧路径
             if (error) {
                 
             }else{
-                self.dataSource =[(InformationDataModel *)dataObj treeList];
+                weakSelf.dataSource =[(InformationDataModel *)dataObj treeList];
             }
-            [self initSubviews];
+            [weakSelf initSubviews];
         }];
-
-        
     }
 }
-
 #pragma mark 获取缓存数据
 -(void)filePathData{
     NSString* newFilePath = [self newFilePath:_navigationTitle];

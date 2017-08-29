@@ -327,7 +327,7 @@
             urlString = [NSString stringWithFormat:@"%@/intelligentPlant/nengyuanZBdetails.html",[FileService themeResouceDir]];
             break;
         case 4:
-            //            urlString = [NSString stringWithFormat:@"%@/intelligentPlant/chaYiFX.html",[FileService themeResouceDir]];
+            urlString = [NSString stringWithFormat:@"%@/intelligentPlant/chaYiFX.html",[FileService themeResouceDir]];
             break;
         case 5:
             urlString = [NSString stringWithFormat:@"%@/intelligentPlant/dongLiZaiXianYHz.html",[FileService themeResouceDir]];

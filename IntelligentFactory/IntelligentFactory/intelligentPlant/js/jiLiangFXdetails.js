@@ -9,6 +9,19 @@ $(function(){
 	zbsData()
 	var jzId = '1910000';
 	
+	$("label").text(baseObj.formatNDate(new Date()))
+	var changeData = $("label").text();
+	
+	$(".select").change(function(){
+		if($(".select").val() == ''){
+			$("label").text(baseObj.formatNDate(changeData))
+			changeData = $("label").text()
+		} else {
+			$("label").text(baseObj.formatNDate($(".select").val()))
+			changeData = $("label").text()
+		}
+	})
+	
 	
 	var noticeCode = baseObj.getQuery(window.location.search, 'sjson');
 	var cc = 0.23;
@@ -85,6 +98,9 @@ $(function(){
 	})
 	
 	//总表数面板汇总表  ========返回数据多了
+	/*function (){
+		
+	}*/
 	var zParam = {
         AppID: "zb.s20170704000000001",
         DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
@@ -93,10 +109,10 @@ $(function(){
         IsEncrypted: 'false',
         UserID: "test",
         //RequestMethod: "1b363376-cfba-4b3e-bc48-53e361f3de1e|ea7a0e1b-7cbd-4486-b76d-72a1bef9d73c",
-        //RequestParams: [{"value":"2","key":"AreaId"},{"value":"1921000","key":"Condition1"},{"value":"1","key":"DateType"},{"value":"2017-06-20","key":"DateTime"}]
+        //RequestParams: [{"value":"2","key":"AreaId"},{"value":"1921000","key":"Condition1"},{"value":"1","key":"DateType"},{"value":"changeData","key":"DateTime"}]
         //RequestParams: [{"value":"2","key":"AreaId"},{"value":"1921000","key":"Condition1"},{"value":"1","key":"DateType"},{"value":"2017-06-20","key":"DateTime"}]
        RequestMethod: "1b363376-cfba-4b3e-bc48-53e361f3de1e|ea7a0e1b-7cbd-4486-b76d-72a1bef9d73c",
-       RequestParams: [{"value":"2","key":"AreaId"},{"value":"1921000","key":"Condition1"},{"value":"1","key":"DateType"},{"value":"2017-06-18","key":"DateTime"}] 
+       RequestParams: [{"value":"2","key":"AreaId"},{"value":"1921000","key":"Condition1"},{"value":"1","key":"DateType"},{"value":"2017-06-20","key":"DateTime"}] 
         
    	}
 	$.ajax({
@@ -305,7 +321,7 @@ $(function(){
 		    	top: '16%',
 		        left: '0%',
 		        right: '0%',
-		        bottom: '18%',
+		        bottom: '30%',
 		        containLabel: true
 		    },
 		    xAxis : [
@@ -326,7 +342,9 @@ $(function(){
 	               	},
 	               	//坐标轴字体颜色
 	               	axisLabel: {
+	               		interval: 0,
 	                    show: true,
+	                    rotate: 50,
 	                    textStyle: {
 	                        color: '#89898e'
 	                    },
@@ -420,11 +438,11 @@ $(function(){
 			console.log(param)
 		 	console.log(param.data.areaid)
 		 	var AreaId = param.data.areaid;
-		 	mxList(AreaId,jzId)
+		 	mxList(AreaId,jzId,changeData)
 		});
 	}
 	
-	function mxList(AreaId,jzId){
+	function mxList(AreaId,jzId,changeData){
  		var strJson = {
             AppID: "zb.s20170704000000001",
             DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
@@ -433,9 +451,9 @@ $(function(){
             IsEncrypted: 'false',
             UserID: "test",
             RequestMethod: "1b363376-cfba-4b3e-bc48-53e361f3de1e|5a4cc434-8cfc-4760-ac78-aeafae8697f2",//"54e36de2-18c2-43f4-ae7c-28348c141059|41a36aa1-d997-4ab2-894c-7eefad6e7f91",
-            RequestParams: [{"value":AreaId,"key":"AreaId"},{"value":jzId,"key":"Condition1"},{"value":"1","key":"DateType"},{"value":"2017-06-18","key":"DateTime"}]
+            RequestParams: [{"value":AreaId,"key":"AreaId"},{"value":jzId,"key":"Condition1"},{"value":"1","key":"DateType"},{"value":changeData,"key":"DateTime"}]
         }
-		
+		console.log(strJson)
 		$.ajax({
 		   	type: "post",
 	        async: true,
@@ -461,7 +479,7 @@ $(function(){
 		   	},
 		   	error: function (XMLHttpRequest, textStatus, errorThrown) {
 				//loading.hide();
-	            //loading.alertMsg('获取问题类型失败！');
+	            //loading.alertMsg('数据！');
 			}
 		});
  	}
@@ -1452,6 +1470,107 @@ $(function(){
 	        
 		})
   	}
+  	
+  	$(".jzch").on("click",function(event){
+		event.stopPropagation()
+		$(".chLayer").css({"display":"block"});
+		$(".jzchbox").css({"display":"block"});
+	})
+  	
+  	$(".chLayer").on("click",function(){
+		$(this).css({"display":"none"})
+	})
+  	
+  	var strJson = {
+        AppID: "zb.s20170704000000001",
+        DeviceID: "92203450-4267-4AA1-93DB-45CE7C2097DE",
+        EquipSN: "92203450-4267-4AA1-93DB-45CE7C2097DE",
+        EquipType: "iPhone",
+        IsEncrypted: 'false',
+        UserID: "test",
+        RequestMethod: "696969f2-bc52-4fec-bf9f-9859d528a750|12425b7a-01e0-4c8c-9e1c-98de7e3b17e9",//"54e36de2-18c2-43f4-ae7c-28348c141059|41a36aa1-d997-4ab2-894c-7eefad6e7f91",
+        RequestParams: [{ "value": "0", "key": "value1" }]
+   	}	
+	$.ajax({
+	   	type: "post",
+        async: true,
+        url: domainStr+"/app/api/MobileBusiness/GetPageViewData",//"http://localhost:11979/api/MobileBusiness/GetPageViewData",
+        contentType: "application/x-www-form-urlencoded",
+        data: JSON.stringify(strJson),
+	   	success: function(msg){
+	   		console.log(JSON.parse(msg))
+	   		var jzListAll = JSON.parse(msg).mediumList[0].children;
+	   		var jzListLeftDome = '<div data-areaId='+JSON.parse(msg).mediumList[0].id+' class="alone">'+
+									'<p>'+JSON.parse(msg).mediumList[0].text+'</p>'+
+								'</div>';
+	   		$.each(jzListAll, function(i) {
+	   			jzListLeftDome += 	'<div data-areaId='+jzListAll[i].id+' class="myshowcontentL">'+
+										'<p>'+jzListAll[i].text+'</p>'+
+									'</div>';
+	   		});
+	   		$(".boxleft").append(jzListLeftDome);
+	   		
+	   		
+	   		$(".alone").on("click",function(){
+	   			$(".boxright").empty();
+	   			$(this).find("p").addClass("text")
+	   			$(this).siblings().find("p").removeClass("text");
+	   			console.log($(this).attr("data-areaid"))
+	   			var childrenD ='<div data-chidrenId='+$(this).attr("data-areaid")+' class="ralone">'+
+									'<p>全部</p>'+
+								'</div>';
+				$(".boxright").append(childrenD);
+				console.log(childrenD)
+				console.log($(".boxright").children())
+				$(".ralone").click(function(){
+					console.log($(this).attr("data-chidrenId"))
+					$(this).addClass("bk").siblings().removeClass("bk");
+					setTimeout(function(){
+						$(".chLayer").css({"display":"none"})
+					},600)
+				})
+	   		})
+	   		
+	   		
+	   		
+	   		$(".myshowcontentL").on("click",function(){
+	   			$(".boxright").empty();
+	   			$(this).find("p").addClass("text")
+	   			$(this).siblings().find("p").removeClass("text");
+	   			var thisAreaId = $(this).attr("data-areaId");
+				$.each(jzListAll, function(i) {
+					if(thisAreaId == jzListAll[i].id){
+						var childrenAreaId = jzListAll[i].children;
+						console.log(childrenAreaId)
+						var childrenDome = "";
+						if(childrenAreaId.length == 0){
+							childrenDome ='<div data-chidrenId='+thisAreaId+' class="myshowcontentR">'+
+												'<p>选择该介质</p>'+
+											'</div>'
+						} else {
+							$.each(childrenAreaId, function(j) {
+								childrenDome += '<div data-chidrenId='+childrenAreaId[j].id+' class="myshowcontentR">'+
+													'<p>'+childrenAreaId[j].text+'</p>'+
+												'</div>';
+							});
+						}
+						$(".boxright").append(childrenDome);
+						$(".myshowcontentR").on("click",function(){
+							$(this).addClass("bk").siblings().removeClass("bk");
+							$(".jzch").text($(this).find("p").text())
+							setTimeout(function(){
+								$(".chLayer").css({"display":"none"})
+							},600)
+						})	
+					}
+				});
+			})
+	   	},
+	   	error: function (XMLHttpRequest, textStatus, errorThrown) {
+			//loading.hide();
+            //loading.alertMsg('获取问题类型失败！');
+		}
+	});
   	
   	
 })

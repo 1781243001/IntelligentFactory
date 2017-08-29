@@ -8,6 +8,14 @@
 
 #import "IFBaseViewController.h"
 
+@protocol DiffereceAnalyceDelegate <NSObject>
+
+-(void)analyceReturnWebViewData:(NSMutableArray *)array;
+
+@end
+
 @interface IFDiffereceAnalyceController : IFBaseViewController
+
+@property (nonatomic,weak)id<DiffereceAnalyceDelegate> differeceDelegate;
 
 @end

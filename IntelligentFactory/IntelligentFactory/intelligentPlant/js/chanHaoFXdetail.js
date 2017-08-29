@@ -91,8 +91,10 @@ $(function(){
 	   		
 	   		$(".alone").on("click",function(){
 	   			$(".boxright").empty();
+	   			$(this).find("p").addClass("text")
+	   			$(this).siblings().find("p").removeClass("text");
 	   			console.log($(this).attr("data-areaid"))
-	   			var childrenD ='<div data-chidrenId='+$(this).attr("data-areaid")+' class="myshowcontentR ralone">'+
+	   			var childrenD ='<div data-chidrenId='+$(this).attr("data-areaid")+' class="ralone">'+
 									'<p>全部</p>'+
 								'</div>';
 				$(".boxright").append(childrenD);
@@ -121,7 +123,7 @@ $(function(){
 						var childrenDome = "";
 						if(childrenAreaId.length == 0){
 							childrenDome ='<div data-chidrenId='+thisAreaId+' class="myshowcontentR">'+
-												'<p>全部</p>'+
+												'<p>选择该介质</p>'+
 											'</div>'
 						} else {
 							$.each(childrenAreaId, function(j) {
@@ -133,6 +135,7 @@ $(function(){
 						$(".boxright").append(childrenDome);
 						$(".myshowcontentR").on("click",function(){
 							$(this).addClass("bk").siblings().removeClass("bk");
+							$(".jzch").text($(this).find("p").text())
 							setTimeout(function(){
 								$(".chLayer").css({"display":"none"})
 							},600)

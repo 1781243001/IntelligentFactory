@@ -256,8 +256,7 @@ $(function(){
 	});
 	
 	$(".footer").on("click",function(){
-		alert("dingZHiGuanWangTiaoZhuan")
-		window.location.href = "dingZHiGuanWangTiaoZhuan";
+		window.location.href = 'dingZHiGuanWangTiaoZhuanchayi.html?DepartmentDatachayi=DepartmentDatachayi';
 	})
 	
 	
