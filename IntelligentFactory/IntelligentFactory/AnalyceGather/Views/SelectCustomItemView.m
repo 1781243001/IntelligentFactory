@@ -14,6 +14,7 @@
     itemClickBlock _block;
     CGRect _rect;
     NSMutableArray *_arrBtn;
+    NSMutableArray *_imageArrBtn;
 }
 
 
@@ -32,6 +33,7 @@
         NSInteger i= 0;
         float height = 0;
         _arrBtn = [NSMutableArray array];
+        _imageArrBtn = [NSMutableArray array];
         UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"selectOriganitian.png"]];
         image.frame = CGRectMake(0, 0, kScreen_Width, imgSpcae);
         [self addSubview:image];
@@ -54,18 +56,20 @@
             [self addSubview:titleBtn];
             titleBtn.titleLabel.numberOfLines = 0;
             UIButton *imageBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-            [imageBtn setBackgroundImage:[UIImage imageNamed:@"addModelItem.png"] forState:(UIControlStateNormal)];
             imageBtn.tag = 400+i;
             [imageBtn addTarget:self action:@selector(clickAddData:) forControlEvents:(UIControlEventTouchUpInside)];
             imageBtn.frame = CGRectMake(imgWidth -15, 7.5, 15, 15);
             [titleBtn addSubview:imageBtn];
             if (i==0) {
                 [titleBtn setTitleColor:[UIColor hexString:@"#005BAC"] forState:(UIControlStateNormal)] ;
+                [imageBtn setBackgroundImage:[UIImage imageNamed:@"addModelItemOpen.png"] forState:(UIControlStateNormal)];
             }else{
                 [titleBtn setTitleColor:[UIColor hexString:@"#333333"] forState:(UIControlStateNormal)] ;
+                [imageBtn setBackgroundImage:[UIImage imageNamed:@"addModelItemClose.png"] forState:(UIControlStateNormal)];
             }
             height += itemMargin+30;
             i++;
+            [_imageArrBtn addObject:imageBtn];
             [_arrBtn addObject:titleBtn];
         }
 //        UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreen_Width, 0.5)];
@@ -80,9 +84,12 @@
 -(void)clickShow:(UIButton *)sender{
     
     for (UIButton *btn in _arrBtn) {
-        [btn setTitleColor:[UIColor hexString:@"#333333"] forState:(UIControlStateNormal)] ;
+        [btn setTitleColor:[UIColor hexString:@"#333333"] forState:(UIControlStateNormal)];
+        [(UIButton *)[btn.subviews lastObject]  setBackgroundImage:[UIImage imageNamed:@"addModelItemClose.png"] forState:(UIControlStateNormal)];
     }
-    [sender setTitleColor:[UIColor hexString:@"#005BAC"] forState:(UIControlStateNormal)] ;
+    [sender setTitleColor:[UIColor hexString:@"#005BAC"] forState:(UIControlStateNormal)];
+    [(UIButton *)[sender.subviews lastObject]  setBackgroundImage:[UIImage imageNamed:@"addModelItemOpen.png"] forState:(UIControlStateNormal)];
+
     DetailedInformationModel *model = [_dataSource objectAtIndex:sender.tag];
     if (_block) {
         _block(model,self.tag,_rect);
@@ -92,7 +99,11 @@
 
 -(void)clickAddData:(UIButton *)sender{
     DetailedInformationModel *model = [_dataSource objectAtIndex:sender.tag-400];
-
+//    for (UIButton *btn in _imageArrBtn) {
+//        [btn setBackgroundImage:[UIImage imageNamed:@"addModelItemClose.png"] forState:(UIControlStateNormal)];
+//    }
+//    [sender setBackgroundImage:[UIImage imageNamed:@"addModelItemOpen.png"] forState:(UIControlStateNormal)];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:SelectDeploy object:model];
 }
 

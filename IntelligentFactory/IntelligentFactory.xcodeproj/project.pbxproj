@@ -59,7 +59,7 @@
 		186A98431F3947540074917B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A98421F3947540074917B /* ViewController.m */; };
 		186A984D1F39481A0074917B /* IFSelectOrganizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A984A1F39481A0074917B /* IFSelectOrganizeController.m */; };
 		186A984E1F39481A0074917B /* IFSequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A984C1F39481A0074917B /* IFSequenceViewController.m */; };
-		186A98511F3948240074917B /* addModelItem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186A984F1F3948240074917B /* addModelItem@2x.png */; };
+		186A98511F3948240074917B /* addModelItemOpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186A984F1F3948240074917B /* addModelItemOpen@2x.png */; };
 		186A98521F3948240074917B /* selectOriganitian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186A98501F3948240074917B /* selectOriganitian@2x.png */; };
 		186A98571F3948390074917B /* DetailedInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A98541F3948390074917B /* DetailedInformationModel.m */; };
 		186A98581F3948390074917B /* InformationDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A98561F3948390074917B /* InformationDataModel.m */; };
@@ -100,6 +100,7 @@
 		1895502F1F0C7B9B00862AE8 /* IF_WKWebHtmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895502A1F0C7B9B00862AE8 /* IF_WKWebHtmlViewController.m */; };
 		189550341F0C8CE300862AE8 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 189550331F0C8CE300862AE8 /* UIViewController+BackButtonHandler.m */; };
 		1895F38B1F34064900B9FE19 /* IFWebRequestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895F38A1F34064900B9FE19 /* IFWebRequestViewModel.m */; };
+		189658221F564E7400EB5952 /* addModelItemClose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189658211F564E7400EB5952 /* addModelItemClose@2x.png */; };
 		18AF88521F3DB1A6001BE531 /* notdevelop.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF88511F3DB1A6001BE531 /* notdevelop.png */; };
 		18B706A91F1DF83400A9D641 /* IF_UserCentreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B706A81F1DF83400A9D641 /* IF_UserCentreViewController.m */; };
 		18B706AB1F1E05E000A9D641 /* NavImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B706AA1F1E05E000A9D641 /* NavImage.png */; };
@@ -193,7 +194,7 @@
 		186A984A1F39481A0074917B /* IFSelectOrganizeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFSelectOrganizeController.m; sourceTree = "<group>"; };
 		186A984B1F39481A0074917B /* IFSequenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSequenceViewController.h; sourceTree = "<group>"; };
 		186A984C1F39481A0074917B /* IFSequenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFSequenceViewController.m; sourceTree = "<group>"; };
-		186A984F1F3948240074917B /* addModelItem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addModelItem@2x.png"; sourceTree = "<group>"; };
+		186A984F1F3948240074917B /* addModelItemOpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addModelItemOpen@2x.png"; sourceTree = "<group>"; };
 		186A98501F3948240074917B /* selectOriganitian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectOriganitian@2x.png"; sourceTree = "<group>"; };
 		186A98531F3948390074917B /* DetailedInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedInformationModel.h; sourceTree = "<group>"; };
 		186A98541F3948390074917B /* DetailedInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedInformationModel.m; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 		189550331F0C8CE300862AE8 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		1895F3891F34064900B9FE19 /* IFWebRequestViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFWebRequestViewModel.h; sourceTree = "<group>"; };
 		1895F38A1F34064900B9FE19 /* IFWebRequestViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFWebRequestViewModel.m; sourceTree = "<group>"; };
+		189658211F564E7400EB5952 /* addModelItemClose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addModelItemClose@2x.png"; sourceTree = "<group>"; };
 		18AF88511F3DB1A6001BE531 /* notdevelop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notdevelop.png; sourceTree = "<group>"; };
 		18B706A71F1DF83400A9D641 /* IF_UserCentreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IF_UserCentreViewController.h; sourceTree = "<group>"; };
 		18B706A81F1DF83400A9D641 /* IF_UserCentreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IF_UserCentreViewController.m; sourceTree = "<group>"; };
@@ -468,7 +470,8 @@
 		186A98461F39475C0074917B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				186A984F1F3948240074917B /* addModelItem@2x.png */,
+				186A984F1F3948240074917B /* addModelItemOpen@2x.png */,
+				189658211F564E7400EB5952 /* addModelItemClose@2x.png */,
 				186A98501F3948240074917B /* selectOriganitian@2x.png */,
 			);
 			path = Images;
@@ -947,7 +950,8 @@
 			files = (
 				18AF88521F3DB1A6001BE531 /* notdevelop.png in Resources */,
 				188586361F1DB95100F59691 /* login_image@2x.png in Resources */,
-				186A98511F3948240074917B /* addModelItem@2x.png in Resources */,
+				186A98511F3948240074917B /* addModelItemOpen@2x.png in Resources */,
+				189658221F564E7400EB5952 /* addModelItemClose@2x.png in Resources */,
 				1878C9751F01FF3500F3F337 /* Assets.xcassets in Resources */,
 				1868DBD21F3C780800071DDB /* addPhoto.png in Resources */,
 				18662AA61F246C3300932305 /* user_mail@2x.png in Resources */,

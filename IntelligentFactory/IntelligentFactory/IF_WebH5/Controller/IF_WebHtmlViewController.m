@@ -166,7 +166,13 @@
 }
 
 -(void)analyceReturnWebViewData:(NSMutableArray *)array{
-    [self selelctOrganize:array];
+    NSMutableArray *updataArray = [NSMutableArray array];
+    for (NSArray *arr in array) {
+        for (DetailedInformationModel *model in arr) {
+            [updataArray addObject:model];
+        }
+    }
+    [self selelctOrganize:updataArray];
 }
 
 -(void)selelctOrganize:(NSArray *)array{

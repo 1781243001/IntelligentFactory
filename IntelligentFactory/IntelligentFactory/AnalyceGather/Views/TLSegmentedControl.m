@@ -207,9 +207,14 @@
     lastIndex = index;
     for (UIButton *segBtn in self.btns) {
         segBtn.selected = NO;
+        if (_isshowAdd) {
+            [(UIButton *)[segBtn.subviews lastObject] setBackgroundImage:[UIImage imageNamed:@"addModelItemClose.png"] forState:(UIControlStateNormal)];
+        }
     }
     sender.selected = YES;
-
+    if (_isshowAdd) {
+        [(UIButton *)[sender.subviews lastObject] setBackgroundImage:[UIImage imageNamed:@"addModelItemOpen.png"] forState:(UIControlStateNormal)];
+    }
     
     [UIView animateWithDuration:0.25 animations:^{
         self.indicatorBar.centerX = sender.centerX;
@@ -288,7 +293,11 @@
             segBtn.bounds = CGRectMake(0, 0, with,self.frame.size.height);
             UIButton *btn  = [UIButton buttonWithType:(UIButtonTypeCustom)];
             btn.frame = CGRectMake(segBtn.frame.size.width - 20, (self.frame.size.height-15)/2, 15, 15);
-            [btn setBackgroundImage:[UIImage imageNamed:@"addModelItem.png"] forState:(UIControlStateNormal)];
+            if (i == 0) {
+                [btn setBackgroundImage:[UIImage imageNamed:@"addModelItemOpen.png"] forState:(UIControlStateNormal)];
+            }else{
+                [btn setBackgroundImage:[UIImage imageNamed:@"addModelItemClose.png"] forState:(UIControlStateNormal)];
+            }
             btn.tag = i;
             [btn addTarget:self action:@selector(addAction:) forControlEvents:UIControlEventTouchUpInside];
             [segBtn addSubview:btn];

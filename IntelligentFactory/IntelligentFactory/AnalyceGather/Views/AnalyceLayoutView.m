@@ -59,7 +59,7 @@ static NSIndexPath *oldIndexPath;       //旧路径
             [_analyDelegate returnAnalyceArray:_selelctArr];
         }
     }else{
-        [PromptMessage show:@"对不起，您添加已经达到上限"];
+        [PromptMessage show:@"已达到上限"];
     }
     
     float high =(self.selelctArr.count/3 + ((_selelctArr.count %3) >0?1:0)) * 50 + 44 +(self.selelctArr.count > 0?20:0);

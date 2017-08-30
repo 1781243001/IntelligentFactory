@@ -21,7 +21,6 @@
 @property (nonatomic,strong) TLSegmentedControl *segmentBar;
 @property (nonatomic,strong) NSArray *treeArray; //平铺数据
 @property (nonatomic,strong) NSMutableArray *selectArray;
-@property (nonatomic,strong) NSMutableArray *returnArray;//返回数据
 
 @end
 
@@ -44,7 +43,31 @@
     [self navigationBar];
     [self requestNetWork];
 }
+#pragma mark 获取缓存数据
+-(void)filePathData{
+    NSString* newFilePath = [self newFilePath];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:newFilePath]) //如果存在
+    {
+        NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:newFilePath];
+        
+        if (array.count)
+        {
+            self.selectArray = [NSMutableArray arrayWithArray:array];
+        }
+    }else{
+        for (int i = 0; i < _mediumArray.count; i++) {
+            NSMutableArray *array = [NSMutableArray array];
+            [self.selectArray addObject:array];
+        }
+    }
+}
 
+-(NSString *)newFilePath{
+    NSString *filePath = [NSSearchPathForDirectoriesInDomains( NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *newFilePath = [filePath stringByAppendingPathComponent:@"differeceAnalye.txt"];
+    return newFilePath;
+}
 -(void)requestNetWork{
     [self.view beginLoading];
     dispatch_queue_t disqueue =  dispatch_queue_create("network", DISPATCH_QUEUE_CONCURRENT);
@@ -72,7 +95,12 @@
                 if (error) {
                     
                 }else{
-                    _treeArray =[(InformationDataModel *)data treeList];
+                    if ([data  isKindOfClass:[NSString class]]) {
+                        
+                    }else{
+                        _treeArray =[(InformationDataModel *)data treeList];
+
+                    }
                     
                 }
             }];
@@ -96,11 +124,10 @@
     self.navigationItem.title = @"差异分析管网配置";
     WEAKSELF
     FunctionButton  *button = [[FunctionButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30) withType:(UIButtonTypeCustom) image:@"sequence_delete.png" block:^(UIButton *sender) {
-        //        NSString *newFilePath = [weakSelf newFilePath:weakSelf.navigationTitle];
-        //        BOOL success = [NSKeyedArchiver archiveRootObject:weakSelf.selelctArr toFile:newFilePath];
-        //        DHLog(@"%d",success);
+        NSString *newFilePath = [weakSelf newFilePath];
+        [NSKeyedArchiver archiveRootObject:weakSelf.selectArray toFile:newFilePath];
         if ([weakSelf.differeceDelegate respondsToSelector:@selector(analyceReturnWebViewData:)]) {
-            [weakSelf.differeceDelegate analyceReturnWebViewData:weakSelf.returnArray];
+            [weakSelf.differeceDelegate analyceReturnWebViewData:weakSelf.selectArray];
         }
         [weakSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -112,10 +139,7 @@
     if (_mediumArray.count==0) {
         return;
     }
-    for (int i = 0; i < _mediumArray.count; i++) {
-        NSMutableArray *array = [NSMutableArray array];
-        [self.selectArray addObject:array];
-    }
+    [self filePathData];
     [self.view addSubview:self.segmentBar];
     [self createAnalyceView:0];
 
@@ -124,6 +148,7 @@
 -(void)segmentedControl:(TLSegmentedControl *)segmentedControl didSelectIndex:(NSUInteger)index{
     AnalyceLayoutView *layout = (AnalyceLayoutView *)[self.view viewWithTag:814];
     [layout removeFromSuperview];
+//    [self filePathData];
     [self createAnalyceView:index];
 }
 
@@ -141,8 +166,6 @@
 #pragma mark ——选中的数据
 -(void)returnAnalyceArray:(NSMutableArray *)array{
 
-    _returnArray = array;
-    
 }
 
 -(TLSegmentedControl *)segmentBar{
