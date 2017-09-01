@@ -69,7 +69,7 @@
     return newFilePath;
 }
 -(void)requestNetWork{
-    [self.view beginLoading];
+//    [self.view beginLoading];
     dispatch_queue_t disqueue =  dispatch_queue_create("network", DISPATCH_QUEUE_CONCURRENT);
     dispatch_group_t group = dispatch_group_create();
     
@@ -108,7 +108,7 @@
         
         dispatch_group_notify(group, disqueue, ^{
             // 汇总结果
-            [self.view endLoading];
+//            [self.view endLoading];
             
             dispatch_group_enter(group);//放入group
             dispatch_async(dispatch_get_main_queue(), ^{

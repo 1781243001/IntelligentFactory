@@ -32,7 +32,7 @@
         [_cancelView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_textLabel.mas_left).offset(0);
             make.top.equalTo(_textLabel.mas_top).offset(-5);
-            make.size.mas_equalTo(CGSizeMake(15, 15));
+            make.size.mas_equalTo(CGSizeMake(13, 13));
         }];
     }
     return self;

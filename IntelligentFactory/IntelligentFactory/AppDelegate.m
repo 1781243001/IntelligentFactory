@@ -161,26 +161,26 @@
 -(void)updateResources
 {
     NSString *resourceVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"Resourceversion"];
-//    if (!resourceVersion.length) {
-//        resourceVersion = @"0.0.0.1";
+    if (!resourceVersion.length) {
+        resourceVersion = @"0.0.0.1";
         NSString *string = [[NSBundle mainBundle] pathForResource:@"intelligentPlant" ofType:nil];
-    [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/intelligentPlant",[FileService themeResouceDir]] error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/intelligentPlant",[FileService themeResouceDir]] error:nil];
         [self copyMissingFile:string toPath:[NSString stringWithFormat:@"%@",[FileService themeResouceDir]]];
-//    }
-//    NSDictionary *dic = @{@"DeviceID":@"20507b8cd593f4fb",@"EquipType":@"Android",@"Tel":@"00000000",@"AppID":@"zb.s20170704000000001",@"IsEncrypted":@"false",@"IsApp":@"1",@"IsDev":@"0",@"Resourceversion":resourceVersion,@"Appversion":@"1.0.0.0"};
-//    [RequestService AFN_JSONResponseUrlType:RequestUpdateCheck requestWay:RequestPost param:dic modelClass:[VersionModel class] responseBlock:^(id dataObj, NSError *error) {
-//        if (error) {
-//            return;
-//        }
-//        VersionModel *version = dataObj;
-//        if (version.IsHaveNewResourceVersion == 1) {
-//            NSString *path = [NSString stringWithFormat:@"%@/?version=%@",[RequestService getUrlType:RequestDownRource],version.NewResourceversion];
-//            [IFHomeViewModel downLoadHtmlZip:path block:^{
-//                [[NSUserDefaults standardUserDefaults]setValue:version.NewResourceversion forKey:@"Resourceversion"];
-//                [[NSUserDefaults standardUserDefaults] synchronize];
-//            }];
-//        }
-//    }];
+    }
+    NSDictionary *dic = @{@"DeviceID":@"20507b8cd593f4fb",@"EquipType":@"Android",@"Tel":@"00000000",@"AppID":@"zb.s20170704000000001",@"IsEncrypted":@"false",@"IsApp":@"1",@"IsDev":@"0",@"Resourceversion":resourceVersion,@"Appversion":@"1.0.0.0"};
+    [RequestService AFN_JSONResponseUrlType:RequestUpdateCheck requestWay:RequestPost param:dic modelClass:[VersionModel class] responseBlock:^(id dataObj, NSError *error) {
+        if (error) {
+            return;
+        }
+        VersionModel *version = dataObj;
+        if (version.IsHaveNewResourceVersion == 1) {
+            NSString *path = [NSString stringWithFormat:@"%@/?version=%@",[RequestService getUrlType:RequestDownRource],version.NewResourceversion];
+            [IFHomeViewModel downLoadHtmlZip:path block:^{
+                [[NSUserDefaults standardUserDefaults]setValue:version.NewResourceversion forKey:@"Resourceversion"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }];
+        }
+    }];
 
 }
 
